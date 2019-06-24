@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import toolsReducer from './toolsReducer';
+import auth from './authReducer';
+import tools from './toolsReducer';
 
 export default combineReducers({
-	tools: toolsReducer
+	auth, tools
 });
