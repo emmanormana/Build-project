@@ -1,7 +1,7 @@
 import axios from 'axios';
 import types from './index';
 
-export const doLogin = credentials => async dispatch => {
+export const doSignIn = credentials => async dispatch => {
     dispatch({type: types.LOGIN_START});
     try {
         const response = await axios.post('someurl', credentials);
@@ -20,3 +20,7 @@ export const doCreateAccount = newUserDetails => async dispatch => {
         console.log(error);
     }
 };
+
+export const doSignOut = () => dispatch => {
+
+}

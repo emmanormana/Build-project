@@ -22,6 +22,12 @@ export default (state = initialState, action) => {
             return {...state, isLoading: false};
         case types.CREATE_USER_FAIL:
             return {...state, isLoading: false};
+        case types.LOGOUT_START:
+            return {...state, isLoading: true};
+        case types.LOGOUT_SUCCESS:
+            return {...state, isLoading: false};
+        case types.LOGOUT_FAIL:
+            return {...state, isLoading: false};
         default:
             return state;
     }
