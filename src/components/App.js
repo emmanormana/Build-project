@@ -1,5 +1,6 @@
 import React from 'react';
+import Navigation from './common/Navigation';
 
-const App = () => <h1>Use My Tools</h1>;
+const App = () => <Navigation/>;
 
 export default App;

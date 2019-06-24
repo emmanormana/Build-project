@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-
-const tempReducer = (state = {}, action) => state;
+import toolsReducer from './toolsReducer';
 
 export default combineReducers({
-	temp : tempReducer,
+	tools: toolsReducer
 });

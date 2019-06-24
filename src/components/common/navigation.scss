@@ -1,0 +1,43 @@
+.navbar {
+  margin: auto;
+  max-width: 1440px;
+  width: 100%;
+  border: 1px solid #979797;
+  background-color: #DAAB1D;
+  height: 128px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1E3A46;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+    margin-left: 80px;
+
+    @media (max-width: 800px) {
+      margin-left: 0;
+    }
+  }
+
+  a {
+    font-size: 2rem;
+    margin-right: 32px;
+    &:hover {
+      text-decoration: underline;
+      background-color: #1E3A46;
+      color: #DAAB1D;
+    }
+    &:last-child {
+      margin-right: 78px;
+
+      @media (max-width: 800px) {
+        margin-right: 0;
+      }
+    }
+  }
+}
