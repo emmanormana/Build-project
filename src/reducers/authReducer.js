@@ -2,6 +2,7 @@ import types from '../actions';
 
 const initialState = {
     user: {},
+    isAuth: false,
     isLoading: false,
     errors: null
 };
