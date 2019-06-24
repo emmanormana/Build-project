@@ -22,5 +22,10 @@ export const doCreateAccount = newUserDetails => async dispatch => {
 };
 
 export const doSignOut = () => dispatch => {
-
+    dispatch({type: types.LOGOUT_START});
+    try {
+        dispatch({type: types.LOGOUT_SUCCESS});
+    } catch(error) {
+        dispatch({type: types.LOGOUT_FAIL});
+    }
 }

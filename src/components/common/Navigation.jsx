@@ -2,10 +2,26 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
+import {doSignOut} from "../../actions/authActions";
+
 import './navigation.scss';
 
 class Navigation extends Component {
-
+    signedInLinks = (
+        <div>
+            <NavLink to='#'>Support</NavLink>
+            <NavLink to='/dashboard/account'>My Account Info</NavLink>
+            <NavLink to='/' onClick={this.props.doSignOut}>Sign Out</NavLink>
+        </div>
+    );
+    signedOutLinks = (
+        <div>
+            <NavLink to='/about'>About</NavLink>
+            <NavLink to='/faq'>FAQ</NavLink>
+            <NavLink to='/create-account'>Create Account</NavLink>
+            <NavLink to='/'>Sign In</NavLink>
+        </div>
+    );
 
     componentDidMount() {
         if (localStorage.getItem('tools_user')) {
@@ -14,28 +30,12 @@ class Navigation extends Component {
 
     }
 
-    signedInLinks = (
-        <div>
-            <NavLink to='#'>Support</NavLink>
-            <NavLink to='/dashboard/account'>My Account Info</NavLink>
-            <NavLink to='/dashboard/signout'>Sign Out</NavLink>
-        </div>
-    );
-
-    signedOutLinks =  (
-        <div>
-            <NavLink to='/about'>About</NavLink>
-            <NavLink to='/faq'>FAQ</NavLink>
-            <NavLink to='/create-account'>Create Account</NavLink>
-            <NavLink to='/'>Sign In</NavLink>
-        </div>
-    )
-
     render() {
+        const {isAuth} = this.props;
         return (
             <nav className='navbar'>
                 <h1>Use My Tools</h1>
-                {this.props.isAuth ? this.signedInLinks : this.signedOutLinks}
+                {isAuth ? this.signedInLinks : this.signedOutLinks}
             </nav>
         );
     }
@@ -43,4 +43,4 @@ class Navigation extends Component {
 
 const mapStateToProps = state => ({isAuth: state.auth.isAuth});
 
-export default connect(mapStateToProps,null)(Navigation);
+export default connect(mapStateToProps, {doSignOut})(Navigation);
