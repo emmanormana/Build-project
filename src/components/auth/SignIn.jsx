@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 
 import HeroImage from '../common/HeroImage';
 
-import './signin.scss';
+
+import Wrapper from '../styles/signInForm/Wrapper';
+
+
 
 const SignIn = () => {
   const initialState = {
@@ -19,11 +22,11 @@ const SignIn = () => {
     e.preventDefault();
   };
   return (
-    <section className='sign-in'>
+    <Wrapper>
       <HeroImage />
       <div className='bottom-content' />
       <form onSubmit={handleSubmit}>
-        <h4>Sign In</h4>
+        <h4>Sign In!</h4>
         <div className='input-group'>
           <div className='form-group'>
           <label>Email Address</label>
@@ -46,7 +49,7 @@ const SignIn = () => {
         <Link to='/create-account'>Create Account</Link>
       </div>
 
-    </section>
+    </Wrapper>
   );
 };
 
