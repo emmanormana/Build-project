@@ -5,11 +5,11 @@ import {
 } from 'react-router-dom';
 
 const PrivateRoute = ( {component: Component, ...rest} ) => {
-  const auth = true;
+  const auth = false;
   if (auth) {
     return <Route {...rest} render={props => <Component {...props} />} />;
   } else {
-    return <Redirect to='/sign-in' />;
+    return <Redirect to='/' />;
   }
 };
 

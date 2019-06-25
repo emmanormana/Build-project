@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
-import toolsReducer from './toolsReducer';
+import {reducer as form} from 'redux-form';
+import auth from './authReducer';
+import tools from './toolsReducer';
+
 
 export default combineReducers({
-	tools: toolsReducer
+	auth, tools, form
 });
