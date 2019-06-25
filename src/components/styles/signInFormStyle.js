@@ -8,6 +8,7 @@ export const Image = styled.img`
 clip-path: polygon(50% 53%, 4% 100%, 0% 100%, 0% 0%, 100% 0%, 100% 100%, 97% 100%);
 `}
 `;
+
 export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
@@ -15,7 +16,7 @@ export const Wrapper = styled.section`
   flex-direction: column;
 `;
 
-//            form containers              //
+
 export const BottomContent = styled.div`
   display: flex;
   justify-content: center;
@@ -67,6 +68,8 @@ export const InputPair = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top:14px;
+
 `;
 
 export const SignInPair = styled.div`
@@ -80,11 +83,11 @@ export const SignInPair = styled.div`
 export const CreateAccountContainer = styled.div`
   display: flex;
   width:400px;
-  height:150px;
+  height:200px;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 178px;
 
 `;
@@ -110,6 +113,20 @@ export const Label = styled.label`
   line-height: 25px;
   margin-left: 20px;
   font-weight: 600;
+  margin-top: 0px;
+
+`;
+
+export const ShortLabel = styled.label`
+  height: 25px;
+  color: #1e3a46;
+  font-size: 1.8rem;
+  line-height: 25px;
+  margin-left: 20px;
+  margin-top: 0px;
+  font-weight: 600;
+
+
 `;
 
 export const Input = styled.input`
@@ -118,6 +135,15 @@ export const Input = styled.input`
   border: none;
   background: #e9e8e4;
   border-bottom: 1px solid #635710;     
+`;
+
+export const ShortInput = styled.input`
+  width: 220px;
+  height: 40px;
+  border: none;
+  background: #e9e8e4;
+  border-bottom: 1px solid #635710; 
+    
 `;
 
 export const SubmitButton = styled.button`
@@ -135,12 +161,12 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   
   &:hover {
-    background-color: #869DA7;
+    background-color: #488EAC;
     color: #DFEBF0;
   }
 `;
 
-export const CreateAccountButton = styled.button`
+export const CreateAccountButton = styled.span`
   height: 63px;	
   width: 263px;	
   border: 3px solid #488EAC;	
@@ -153,7 +179,8 @@ export const CreateAccountButton = styled.button`
   text-align: center;
   color: #488EAC;
   cursor: pointer;
-  
+  padding:15px 45px 15px 45px;
+
   &:hover {
     color: white;
     background-color: #488EAC;
@@ -174,5 +201,8 @@ export const NewTo = styled.p`
   color: #352720;	
   font-size: 24px;	
   line-height: 33px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+
 `;
 
