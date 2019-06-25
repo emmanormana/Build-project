@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 
 export const Wrapper = styled.section`
@@ -16,7 +16,9 @@ export const BottomContent = styled.div`
   height: 424px;
   background-color: white;
   width: 100%;
-
+  ${props => props.card && css`
+    flex-direction: column;
+`}
 `;
 
 export const Form = styled.form`
