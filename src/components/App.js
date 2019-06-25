@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Navigation from './common/Navigation';
 import Footer from './common/Footer';
 import {Route} from 'react-router-dom';
@@ -7,15 +7,23 @@ import CreateAccount from "./auth/CreateAccount";
 import PrivateRoute from "./common/PrivateRoute";
 import WelcomePage from "./tools/WelcomePage";
 
-const App = () => {
-    return (
-        <div className='container'>
-            <Navigation/>
-            <Route exact path='/' component={SignIn}/>
-            <Route path='/create-account' component={CreateAccount}/>
-            <PrivateRoute path='/dashboard' component={WelcomePage}/>
-            <Footer/>
-        </div>);
-};
+class App extends Component {
+    handleSignIn = values => console.log(values);
+    handleCreateAccount = values => {
+        console.log(values);
+    };
+
+    render() {
+        return (
+            <div className='container'>
+                <Navigation/>
+                <Route exact path='/' component={SignIn}/>
+                <Route path='/create-account'
+                       render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
+                <PrivateRoute path='/dashboard' component={WelcomePage}/>
+                <Footer/>
+            </div>);
+    }
+}
 
 export default App;
