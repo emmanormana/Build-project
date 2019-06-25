@@ -123,6 +123,12 @@ export const SubmitButton = styled.button`
   line-height: 44px;
   text-align: center;
   margin-top: 28.32px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #869DA7;
+    color: #DFEBF0;
+  }
 `;
 
 export const CreateAccountButton = styled.button`
@@ -137,6 +143,12 @@ export const CreateAccountButton = styled.button`
   line-height: 33px;	
   text-align: center;
   color: #488EAC;
+  cursor: pointer;
+  
+  &:hover {
+    color: white;
+    background-color: #488EAC;
+  }
 `;
 
 export const ForgotPasswordLink = styled.div`
