@@ -39,24 +39,44 @@ class SignIn extends Component {
                         </FormTop>
                         <InputGroup>
                             <InputPair>
-                                <Field type='email' name='email' placeholder='Email Address' label='Email Address'
-                                       component={TextInput} validate={[required]}/>
+                                <Field 
+                                    type='email' 
+                                    name='email' 
+                                    placeholder='Email Address' 
+                                    label='Email Address'
+                                    component={TextInput} 
+                                    validate={[required]}
+                                />
                             </InputPair>
+
                             <InputPair>
-                                <Field type='password' name='password' placeholder='Password' label='Password'
-                                       component={TextInput} validate={[required]}/>
+                                <Field
+                                    type='password' 
+                                    name='password' 
+                                    placeholder='Password' 
+                                    label='Password'
+                                    component={TextInput} 
+                                    validate={[required]}
+                                />
                             </InputPair>
+
                             <SignInPair>
-                                <Link to='/forgot-password'><ForgotPasswordLink>Forgot
-                                    Password?</ForgotPasswordLink></Link>
-                                <SubmitButton type='submit' disabled={pristine || submitting}> Sign In </SubmitButton>
+                                <Link to='/forgot-password'>
+                                    <ForgotPasswordLink>ForgotPassword?</ForgotPasswordLink>
+                                </Link>
+                                <SubmitButton type='submit' disabled={pristine || submitting}> 
+                                    Sign In 
+                                </SubmitButton>
                             </SignInPair>
+
                         </InputGroup>
                     </Form>
+
                     <CreateAccountContainer>
                         <NewTo>New to Use My Tools?</NewTo>
                         <Link to='/create-account'><CreateAccountButton>Create Account</CreateAccountButton></Link>
                     </CreateAccountContainer>
+                    
                 </BottomContent>
             </Wrapper>
         );
