@@ -1,6 +1,6 @@
 import React from 'react';
 import heroImage from '../../imgs/Hero Image.png';
-import './heroImage.scss';
+import {Image} from "../styles/signInFormStyle";
 
-export default  () => <img src={heroImage} alt="Various Tools" />;
+export default  () => <Image src={heroImage} alt="Various Tools" />;
 

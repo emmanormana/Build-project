@@ -29,7 +29,7 @@ class App extends Component {
                 <Route exact path='/' render={props => <SignIn {...props} onSubmit={this.handleSignIn}/>}/>
                 <Route path='/create-account'
                        render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
-                <PrivateRoute path='/dashboard' component={WelcomePage}/>
+                <Route path='/dashboard' component={WelcomePage}/>
                 <Footer/>
             </div>);
     }

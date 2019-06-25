@@ -1,6 +1,14 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
-//            form containers              //
+export const Image = styled.img`
+  width: 100%;
+  background: white;
+  
+  ${props => props.dashboard && css`
+clip-path: polygon(50% 53%, 4% 100%, 0% 100%, 0% 0%, 100% 0%, 100% 100%, 97% 100%);
+`}
+`;
+
 export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
@@ -16,7 +24,9 @@ export const BottomContent = styled.div`
   height: 424px;
   background-color: white;
   width: 100%;
-
+  ${props => props.card && css`
+    flex-direction: column;
+`}
 `;
 
 export const Form = styled.form`
