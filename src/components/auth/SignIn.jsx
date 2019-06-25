@@ -1,10 +1,28 @@
 import React, { useReducer } from 'react';
 import { Link } from 'react-router-dom';
-
 import HeroImage from '../common/HeroImage';
 
 
-import Wrapper from '../styles/signInForm/Wrapper';
+import { 
+  Wrapper, 
+  Form,
+  H4,
+  BottomContent,
+  SubmitButton,
+  CreateAccountButton,
+  Label,
+  Input,
+  InputGroup,
+  InputPair,
+  SignInPair,
+  ForgotPasswordLink,
+  FormTop,
+  CreateAccountContainer,
+  NewTo,
+} from '../styles/signInFormStyle';
+
+
+
 
 
 
@@ -21,34 +39,49 @@ const SignIn = () => {
   const handleSubmit      = e => {
     e.preventDefault();
   };
+
+
+
   return (
     <Wrapper>
       <HeroImage />
-      <div className='bottom-content' />
-      <form onSubmit={handleSubmit}>
-        <h4>Sign In!</h4>
-        <div className='input-group'>
-          <div className='form-group'>
-          <label>Email Address</label>
-          <input type='email' value={email} className='email'
-                 onChange={e => setState( {email: e.target.value} )} />
-          </div>
-          <div className='form-group'>
-          <label>Password</label>
-          <input type='password' value={password} className='password'
-                 onChange={e => setState( {password: e.target.value} )} />
-          </div>
-          <div className='form-group'>
-          <Link to='/forgot-password'>Forgot Password?</Link>
-          <button type='submit'>Sign In</button>
-          </div>
-        </div>
-      </form>
-      <div className='create-account'>
-        <p>New to Use My Tools?</p>
-        <Link to='/create-account'>Create Account</Link>
-      </div>
+      <BottomContent>
 
+        
+        <Form onSubmit={handleSubmit}>
+          
+          <FormTop>
+            <H4>Sign In</H4>
+          </FormTop>
+
+          <InputGroup>
+
+            <InputPair>
+              <Label>Email Address</Label>
+              <Input type='email' value={email} className='email'
+                onChange={e => setState( {email: e.target.value} )} />
+            </InputPair>
+
+            <InputPair>
+              <Label>Password</Label>
+              <Input type='password' value={password} className='password'
+                onChange={e => setState( {password: e.target.value} )} />
+            </InputPair>
+
+
+            <SignInPair>
+              <Link  to='/forgot-password'><ForgotPasswordLink>Forgot Password?</ForgotPasswordLink></Link>
+              <SubmitButton type='submit'> Sign In </SubmitButton>
+            </SignInPair>
+
+          </InputGroup>
+        </Form>
+
+        <CreateAccountContainer>
+          <NewTo>New to Use My Tools?</NewTo>
+          <Link to='/create-account'><CreateAccountButton>Create Account</CreateAccountButton></Link>
+        </CreateAccountContainer>
+      </BottomContent>  
     </Wrapper>
   );
 };
