@@ -1,11 +1,13 @@
 import React, { useReducer } from 'react';
+import {connect} from 'react-redux';
+import {doSignIn} from "../../actions/authActions";
 import { Link } from 'react-router-dom';
 
 import HeroImage from '../common/HeroImage';
 
 import './signin.scss';
 
-const SignIn = () => {
+const SignIn = props => {
   const initialState = {
     email   : '',
     password: ''
@@ -17,6 +19,7 @@ const SignIn = () => {
   const {email, password} = state;
   const handleSubmit      = e => {
     e.preventDefault();
+    props.doSignIn(state);
   };
   return (
     <section className='sign-in'>
@@ -50,4 +53,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default connect(null,{doSignIn})(SignIn);
