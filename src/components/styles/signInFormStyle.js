@@ -1,6 +1,13 @@
 import styled, {css} from 'styled-components'
 
-
+export const Image = styled.img`
+  width: 100%;
+  background: white;
+  
+  ${props => props.dashboard && css`
+clip-path: polygon(50% 53%, 4% 100%, 0% 100%, 0% 0%, 100% 0%, 100% 100%, 97% 100%);
+`}
+`;
 export const Wrapper = styled.section`
   display: flex;
   justify-content: center;

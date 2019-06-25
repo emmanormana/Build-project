@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 import Card from './Card';
 import {dashboard} from '../common/data/welcomePageData';
 import {CardContainer, User, QuickLink} from "./cardStyle";
-import HeroImage from '../common/HeroImage';
-import {BottomContent} from '../styles/signInFormStyle';
+import heroImage from '../../imgs/Hero Image.png'
+import {BottomContent, Image} from '../styles/signInFormStyle';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCaretDown} from "@fortawesome/free-solid-svg-icons";
 
@@ -12,7 +12,7 @@ const WelcomePage = () => {
     const [toggle, setToggle] = useState(false);
     return (
         <>
-            <HeroImage/>
+            <Image dashboard src={heroImage} alt='Various Tools' />
             <BottomContent card>
                 <User>Welcome Gabriel!</User>
                 <div>
