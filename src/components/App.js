@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {getTools} from '../actions/toolActions';
+
+
 
 import Tools from './tools/Tools';
+
 import Navigation from './common/Navigation';
 import Footer from './common/Footer';
 import {Route, withRouter} from 'react-router-dom';
@@ -12,6 +16,9 @@ import WelcomePage from "./tools/WelcomePage";
 import {doCreateAccount, doSignIn} from "../actions/authActions";
 
 class App extends Component {
+    componentDidMount() {
+        this.props.getTools();
+    }
     handleSignIn = values => {
         this.props.doSignIn(values);
         this.props.isAuth && this.props.history.push('/dashboard');
@@ -39,4 +46,5 @@ class App extends Component {
 
 const mapStateToProps = state => ({isAuth: state.auth.isAuth});
 App = withRouter(App);
-export default connect(mapStateToProps, {doSignIn, doCreateAccount})(App);
+
+export default connect(mapStateToProps, {doSignIn, doCreateAccount, getTools})(App);
