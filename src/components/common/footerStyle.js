@@ -3,22 +3,41 @@ import styled from 'styled-components';
 export const FooterStyle = styled.footer`
   height: 195px;
   width: 100%;
+  background-color: #488EAC;
+  display: flex;
+  justify-content: center;
 
   .footer-container {
     display: flex;
-    justify-content: space-between;
-    margin-top: 26px;
+    justify-content: center;
+    width: 100%;
 
     .left-content {
-      margin-left: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction:column;
+      width:33%;
+    }
+    .center-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction:column;
+      width:33%;
     }
 
     .right-content {
-      margin-right: 172px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction:column;
+      width:33%;
     }
 
     .text-content {
-      margin-left: 13px;
+      margin-top: 13px;
+
     }
 
     h4, p {

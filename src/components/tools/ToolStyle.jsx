@@ -76,7 +76,7 @@ export const H1 = styled.h1`
 `;
 
 export const Bold = styled.h1`
-	
+	text-align:center
   color: #41340C;	
   font-size: 18px;	
   line-height: 25px;
@@ -84,7 +84,8 @@ export const Bold = styled.h1`
 `;
 
 export const Italic = styled.h1`
-	
+		text-align:center
+
   color: #41340C;	
   font-size: 18px;	
   line-height: 25px;
