@@ -101,7 +101,6 @@ export const H4 = styled.h4`
   font-size: 3.2rem;
   margin-left: 31px;
   margin-top: 10px;
-
   font-weight:600;
   color: #41340C;
   line-height: 44px;
@@ -115,7 +114,6 @@ export const Label = styled.label`
   margin-left: 20px;
   font-weight: 600;
   margin-top: 0px;
-
 `;
 
 export const ShortLabel = styled.label`
@@ -126,8 +124,6 @@ export const ShortLabel = styled.label`
   margin-left: 20px;
   margin-top: 0px;
   font-weight: 600;
-
-
 `;
 
 export const Input = styled.input`

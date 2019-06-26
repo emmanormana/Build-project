@@ -13,6 +13,8 @@ import SignIn from './auth/SignIn';
 import CreateAccount from "./auth/CreateAccount";
 import PrivateRoute from "./common/PrivateRoute";
 import WelcomePage from "./tools/WelcomePage";
+import RequestTool from "./common/form/RequestToolForm";
+
 import {doCreateAccount, doSignIn} from "../actions/authActions";
 
 class App extends Component {
@@ -38,7 +40,7 @@ class App extends Component {
                        render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
                 <Route exact path='/dashboard' component={WelcomePage} />
                 <Route path='/dashboard/view-my-tools' component={Tools} />
-
+                <Route path='/dashboard/request-tools' component={RequestTool} />
                 <Footer/>
             </div>);
     }
