@@ -8,7 +8,8 @@ import {BottomContent, Image, Wrapper} from '../styles/signInFormStyle';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCaretDown} from "@fortawesome/free-solid-svg-icons";
 
-const WelcomePage = () => {
+const WelcomePage = props => {
+    console.log(props);
     const [toggle, setToggle] = useState(false);
     return (
         <Wrapper>

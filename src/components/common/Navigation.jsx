@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import jwt_decode from 'jwt-decode';
 import {NavLink} from 'react-router-dom';
 
-import {doSignOut} from "../../actions/authActions";
+import {doSignOut, doWelcomeBack} from "../../actions/authActions";
 
 import './navigation.scss';
 
 class Navigation extends Component {
+
     signedInLinks = (
         <div>
             <NavLink to='#'>Support</NavLink>
@@ -23,10 +25,7 @@ class Navigation extends Component {
         </div>
     );
 
-    componentDidMount() {
-        if (localStorage.getItem('tools_user')) {
-            // check to see the token is valid
-        }
+    async componentDidMount() {
 
     }
 

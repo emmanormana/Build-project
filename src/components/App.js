@@ -13,19 +13,28 @@ import SignIn from './auth/SignIn';
 import CreateAccount from "./auth/CreateAccount";
 import PrivateRoute from "./common/PrivateRoute";
 import WelcomePage from "./tools/WelcomePage";
-import {doCreateAccount, doSignIn} from "../actions/authActions";
+import {doCreateAccount, doSignIn, doSignOut, doWelcomeBack} from "../actions/authActions";
+import {dashboard, borrowTool, myRentals,myTools} from './common/data/welcomePageData'
+import jwt_decode from "jwt-decode";
 
 class App extends Component {
-    componentDidMount() {
-        this.props.getTools();
+    async componentDidMount() {
+        await this.props.getTools();
+        if (localStorage.getItem('tools_user')) {
+            console.log('I was called');
+            const expiredTime = jwt_decode(localStorage.getItem('tools_user'));
+            const currentTime = Date.now() / 1000;
+            await expiredTime.exp > currentTime ? this.props.doWelcomeBack(localStorage.getItem('tools_user')) : this.props.doSignOut();
+        }
+        this.props.isAuth && this.props.history.push('/dashboard')
     }
-    handleSignIn = values => {
-        this.props.doSignIn(values);
+    handleSignIn = async values => {
+        await this.props.doSignIn(values);
         this.props.isAuth && this.props.history.push('/dashboard');
     }
-    handleCreateAccount = values => {
+    handleCreateAccount = async values => {
         const {first_name, last_name, email, password} = values;
-        this.props.doCreateAccount({first_name, last_name, email, password});
+        await this.props.doCreateAccount({first_name, last_name, email, password});
         this.props.isAuth && this.props.history.push('/dashboard');
     };
 
@@ -36,7 +45,7 @@ class App extends Component {
                 <Route exact path='/' render={props => <SignIn {...props} onSubmit={this.handleSignIn}/>}/>
                 <Route path='/create-account'
                        render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
-                <Route exact path='/dashboard' component={WelcomePage} />
+                <PrivateRoute exact path='/dashboard' cards={dashboard} component={WelcomePage} />
                 <Route path='/dashboard/view-my-tools' component={Tools} />
 
                 <Footer/>
@@ -47,4 +56,4 @@ class App extends Component {
 const mapStateToProps = state => ({isAuth: state.auth.isAuth});
 App = withRouter(App);
 
-export default connect(mapStateToProps, {doSignIn, doCreateAccount, getTools})(App);
+export default connect(mapStateToProps, {doSignIn, doCreateAccount, getTools, doSignOut, doWelcomeBack})(App);
