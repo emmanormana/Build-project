@@ -10,9 +10,9 @@ import {BottomContent, Form, FormTop, H4, Wrapper } from "../styles/signInFormSt
 import { LargerSubmitButton, UserThumbnail, TestamonialContainer, TestamonialText, TestamonialName, NameInputGroup, CreateAccountInputGroup } from "../styles/createAccountStyle";
 
 const required = value => (value ? undefined : '*Required');
-const maxLength = max => value => value && value.length > max ? `Must be ${max} characters or less` : undefined;
-const minLength = min => value => value && value.length < min ? `Must be ${min} characters or more` : undefined;
-const email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i.test(value) ? 'Invalid Email Address' : undefined;
+const maxLength = max => value => value && value.length > max ? `*Must be ${max} characters or less` : undefined;
+const minLength = min => value => value && value.length < min ? `*Must be ${min} characters or more` : undefined;
+const email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i.test(value) ? '*Invalid Email Address' : undefined;
 const maxLength20 = maxLength(20);
 const minLength2 = minLength(2);
 const minLength5 = minLength(5);
@@ -96,15 +96,12 @@ class CreateAccount extends Component {
                         </TestamonialText>
 
                         <TestamonialName>-Darren Adams</TestamonialName>
-                        
+
                     </TestamonialContainer>
 
-                </BottomContent>
-                
+                </BottomContent> 
             </Wrapper>
         )
-
-
     }
 }
 

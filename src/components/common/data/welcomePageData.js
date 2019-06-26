@@ -11,7 +11,7 @@ export const dashboard = [
         path: '/'
     },
     {
-        heading: 'My Tools',
+        heading: 'My Rentals',
         paragraph: 'In this section you can view tools you have loaned or rented out and also tools you borrowed or rented from others.  This section also shows all active rental requests.',
         path: '/'
     }

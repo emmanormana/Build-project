@@ -64,9 +64,9 @@ export const TestamonialName = styled.p`
 export const WarningRequired = styled.span`
   height: 25px;
   color: red;
-  font-size: 1.3rem;
+  font-size: 1rem;
   line-height: 25px;
-  margin-left: 20px;
+  margin-left: 0px;
   font-weight: 600;
 `;
 
@@ -86,4 +86,13 @@ export const CreateAccountInputGroup = styled.div`
   width:100% ;
   height: 90% ;
 
+`;
+
+export const LabelPair = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width:100% ;
+  height: 90% ;
 `;
