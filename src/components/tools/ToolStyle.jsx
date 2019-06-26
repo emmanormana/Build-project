@@ -8,7 +8,6 @@ export const ToolContainer = styled.div`
   height: 173px;
   width:100%;
   background-color:white;
-  border: 1px solid red;
 `;
 
 export const LargeSubContainer = styled.div`
@@ -20,9 +19,7 @@ export const LargeSubContainer = styled.div`
   width:433px;
   margin-top:10px;
   padding-top:20px;
-
   background-color:white;
-  border: 1px solid red;
 `;
 
 export const SubContainer = styled.div`
@@ -34,7 +31,6 @@ export const SubContainer = styled.div`
   width:200px;
   margin-top:10px;
   background-color:white;
-  border: 1px solid red;
 `;
 
 export const ButtonContainer = styled.div`
@@ -46,7 +42,6 @@ export const ButtonContainer = styled.div`
   width:200px;
   margin-top:10px;
   background-color:white;
-  border: 1px solid blue;
 `;
 
 export const ToolButton = styled.span`

@@ -20,14 +20,15 @@ import {
 } from '../styles/signInFormStyle';
 import TextInput from "../common/form/TextInput";
 
+
+
+
 const required = value => (value ? undefined : '*Required');
 
 class SignIn extends Component {
     render() {
 
-
         const {handleSubmit, pristine, submitting} = this.props;
-
 
         return (
             <Wrapper>

@@ -13,6 +13,7 @@ import SignIn from './auth/SignIn';
 import CreateAccount from "./auth/CreateAccount";
 import PrivateRoute from "./common/PrivateRoute";
 import WelcomePage from "./tools/WelcomePage";
+
 import {doCreateAccount, doSignIn, doSignOut, doWelcomeBack} from "../actions/authActions";
 import {borrowTool, dashboard, myRentals, myTools} from './common/data/welcomePageData'
 import jwt_decode from "jwt-decode";
