@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getTools} from '../actions/toolActions';
 
+
+
+import Tools from './tools/Tools';
+
 import Navigation from './common/Navigation';
 import Footer from './common/Footer';
 import {Route, withRouter} from 'react-router-dom';
@@ -32,7 +36,9 @@ class App extends Component {
                 <Route exact path='/' render={props => <SignIn {...props} onSubmit={this.handleSignIn}/>}/>
                 <Route path='/create-account'
                        render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
-                <Route path='/dashboard' component={WelcomePage}/>
+                <Route path='/dashboard' component={WelcomePage} />
+                <Route path='/view-my-tools' component={Tools} />
+
                 <Footer/>
             </div>);
     }
