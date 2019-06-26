@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import jwt_decode from 'jwt-decode';
 import {NavLink} from 'react-router-dom';
+import {NavBar} from "./navStyle";
 
-import {doSignOut, doWelcomeBack} from "../../actions/authActions";
-
-import './navigation.scss';
+import {doSignOut} from "../../actions/authActions";
 
 class Navigation extends Component {
 
@@ -32,10 +30,10 @@ class Navigation extends Component {
     render() {
         const {isAuth} = this.props;
         return (
-            <nav className='navbar'>
+            <NavBar>
                 <h1>Use My Tools</h1>
                 {isAuth ? this.signedInLinks : this.signedOutLinks}
-            </nav>
+            </NavBar>
         );
     }
 }

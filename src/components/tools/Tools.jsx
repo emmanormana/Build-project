@@ -1,6 +1,7 @@
 import React from 'react';
 import Tool from './Tool';
 import {connect} from 'react-redux';
+import ViewToolHeader from "./ViewToolHeader";
 
 
 const Tools = (props) => {
@@ -11,6 +12,7 @@ const Tools = (props) => {
         return (
 
             <div>
+                <ViewToolHeader/>
                 {props.tools.map((tool) => <Tool key={tool.id} tool={tool}/>)}
             </div>
         )

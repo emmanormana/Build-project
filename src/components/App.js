@@ -8,7 +8,7 @@ import Tools from './tools/Tools';
 
 import Navigation from './common/Navigation';
 import Footer from './common/Footer';
-
+import {GlobalStyle} from './styles/Global';
 import SignIn from './auth/SignIn';
 import CreateAccount from "./auth/CreateAccount";
 import PrivateRoute from "./common/PrivateRoute";
@@ -46,6 +46,7 @@ class App extends Component {
             return <Loader type='Ball-Triangle' color='Yellow' height='100' width='100'/>
         } else {
             return (<div className='container'>
+                <GlobalStyle />
                 <Navigation/>
                 <Switch>
 
