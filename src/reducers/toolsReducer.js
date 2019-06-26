@@ -2,14 +2,15 @@
 
 const initialState = {
   tools: [{
-    tool_id         : '', //TODO: BackEnd
-    owner_id        : '', //TODO: Pull this from the account
-    location        : '',
-    tool_name       : '',
-    tool_description: '',
-    rental_price    : '',
-    length_of_rental: '',
-    status          : [], // TODO: depend on the backend endpoint
+    id              : '1', //TODO: BackEnd
+    owner_id        : '3',
+    image           : 'Chainsaw.png', //TODO: Pull this from the account
+    location        : 'TBD',
+    tool_name       : 'Flamethrower',
+    tool_description: 'Not a real flamethrower',
+    rental_price    : '$15',
+    length_of_rental: '48 hours',
+    status          : ['My Garage Only ', 'My Network ', 'Rental '] ,// TODO: depend on the backend endpoint
   }]
 };
 
