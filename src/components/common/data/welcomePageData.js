@@ -2,7 +2,7 @@ export const dashboard = [
     {
         heading: 'My Tools',
         paragraph: 'In this section you can add new tools to your account, edit those tools, and search or browse for a tool.  You can also see your tool wishlist and add a tool to that list.',
-        path: '/'
+        path: '/dashboard/my-tools'
 
     },
     {
@@ -13,7 +13,7 @@ export const dashboard = [
     {
         heading: 'My Rentals',
         paragraph: 'In this section you can view tools you have loaned or rented out and also tools you borrowed or rented from others.  This section also shows all active rental requests.',
-        path: '/'
+        path: '/dashboard/my-rentals'
     }
 ];
 
@@ -27,7 +27,7 @@ export const borrowTool = [
     {
         heading: 'View Available Tools',
         paragraph: 'View all tools that are available to request by rental or in your network',
-        path: '/'
+        path: '/dashboard/view-all-tools'
     },
     {
         heading: 'View Active Requests',
@@ -45,8 +45,8 @@ export const myTools = [
     },
     {
         heading: 'View all Tools',
-        paragraph: 'View all tools that are available to request by rental or in your network',
-        path: '/'
+        paragraph: 'View all the tools you have listed, easily see which tools you have available and which are out.',
+        path: '/dashboard/view-my-tools'
     },
     {
         heading: 'Tool Wish List',
