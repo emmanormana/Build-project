@@ -1,21 +1,22 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Route, Switch, withRouter} from 'react-router-dom';
 import {getTools} from '../actions/toolActions';
-
 
 
 import Tools from './tools/Tools';
 
 import Navigation from './common/Navigation';
 import Footer from './common/Footer';
-import {Route, withRouter} from 'react-router-dom';
+
 import SignIn from './auth/SignIn';
 import CreateAccount from "./auth/CreateAccount";
 import PrivateRoute from "./common/PrivateRoute";
 import WelcomePage from "./tools/WelcomePage";
 import {doCreateAccount, doSignIn, doSignOut, doWelcomeBack} from "../actions/authActions";
-import {dashboard, borrowTool, myRentals,myTools} from './common/data/welcomePageData'
+import {borrowTool, dashboard, myRentals, myTools} from './common/data/welcomePageData'
 import jwt_decode from "jwt-decode";
+import Loader from "react-loader-spinner";
 
 class App extends Component {
     async componentDidMount() {
@@ -28,10 +29,11 @@ class App extends Component {
         }
         this.props.isAuth && this.props.history.push('/dashboard')
     }
+
     handleSignIn = async values => {
         await this.props.doSignIn(values);
         this.props.isAuth && this.props.history.push('/dashboard');
-    }
+    };
     handleCreateAccount = async values => {
         const {first_name, last_name, email, password} = values;
         await this.props.doCreateAccount({first_name, last_name, email, password});
@@ -39,21 +41,36 @@ class App extends Component {
     };
 
     render() {
-        return (
-            <div className='container'>
+        const {isAuthLoading, isToolsLoading} = this.props;
+        if (isAuthLoading || isToolsLoading) {
+            return <Loader type='Ball-Triangle' color='Yellow' height='100' width='100'/>
+        } else {
+            return (<div className='container'>
                 <Navigation/>
-                <Route exact path='/' render={props => <SignIn {...props} onSubmit={this.handleSignIn}/>}/>
-                <Route path='/create-account'
-                       render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
-                <PrivateRoute exact path='/dashboard' cards={dashboard} component={WelcomePage} />
-                <Route path='/dashboard/view-my-tools' component={Tools} />
+                <Switch>
 
+                    <Route path='/create-account'
+                           render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
+                    <PrivateRoute path='/dashboard/view-my-tools' all={false} component={Tools}/>
+                    <PrivateRoute path='/dashboard/view-all-tools' all={true} component={Tools} />
+                    <PrivateRoute path='/dashboard/borrow-tool' cards={borrowTool} component={WelcomePage}/>
+                    <PrivateRoute path='/dashboard/my-tools' cards={myTools} component={WelcomePage}/>
+                    <PrivateRoute path='/dashboard/my-rentals' cards={myRentals} component={WelcomePage}/>
+                    <PrivateRoute path='/dashboard' cards={dashboard} component={WelcomePage}/>
+
+                    <Route path='/' render={props => <SignIn {...props} onSubmit={this.handleSignIn}/>}/>
+                </Switch>
                 <Footer/>
             </div>);
+        }
     }
 }
 
-const mapStateToProps = state => ({isAuth: state.auth.isAuth});
+const mapStateToProps = state => ({
+    isAuth: state.auth.isAuth,
+    isAuthLoading: state.auth.isLoading,
+    isToolsLoading: state.toolList.isLoading
+});
 App = withRouter(App);
 
 export default connect(mapStateToProps, {doSignIn, doCreateAccount, getTools, doSignOut, doWelcomeBack})(App);
