@@ -36,8 +36,8 @@ class App extends Component {
                 <Route exact path='/' render={props => <SignIn {...props} onSubmit={this.handleSignIn}/>}/>
                 <Route path='/create-account'
                        render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
-                <Route path='/dashboard' component={WelcomePage} />
-                <Route path='/view-my-tools' component={Tools} />
+                <Route exact path='/dashboard' component={WelcomePage} />
+                <Route path='/dashboard/view-my-tools' component={Tools} />
 
                 <Footer/>
             </div>);

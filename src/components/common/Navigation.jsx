@@ -10,7 +10,7 @@ class Navigation extends Component {
     signedInLinks = (
         <div>
             <NavLink to='#'>Support</NavLink>
-            <NavLink to='/dashboard/account'>My Account Info</NavLink>
+            <NavLink to='/dashboard/view-my-tools'>My Account Info</NavLink>
             <NavLink to='/' onClick={this.props.doSignOut}>Sign Out</NavLink>
         </div>
     );
