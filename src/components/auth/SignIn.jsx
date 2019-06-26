@@ -20,7 +20,7 @@ import {
 } from '../styles/signInFormStyle';
 import TextInput from "../common/form/TextInput";
 
-const required = value => (value ? undefined : 'Required');
+const required = value => (value ? undefined : '*Required');
 
 class SignIn extends Component {
     render() {
