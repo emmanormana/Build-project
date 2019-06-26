@@ -4,7 +4,7 @@ import { connect} from 'react-redux';
 
 const mapStateToProps = state => {
   return {
-    tools: state.tools.tools
+    tools: state.toolList.tools
   }
 }
 
