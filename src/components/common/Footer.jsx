@@ -1,10 +1,10 @@
 import React from 'react';
+import {FooterStyle} from "./footerStyle";
 
-import './footer.scss';
 
 const Footer = () => {
   return (
-    <footer>
+    <FooterStyle>
       <div className="footer-container">
         <div className='left-content'>
           <h4>About Use My Tools</h4>
@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>);
+    </FooterStyle>);
 };
 
 export default Footer;

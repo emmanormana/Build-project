@@ -32,3 +32,7 @@ export const doSignOut = () => dispatch => {
         dispatch({type: types.LOGOUT_FAIL});
     }
 };
+
+export const doWelcomeBack = token => {
+    return ({type: types.WELCOME_BACK, payload: token})
+}
