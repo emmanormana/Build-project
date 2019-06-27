@@ -40,7 +40,7 @@ export const myTools = [
     {
         heading: 'Add a Tool',
         paragraph: 'Add a tool to your tool lists, tools can be listed for your garage only, for your network, or for rental',
-        path: '/'
+        path: '/dashboard/add-tool'
 
     },
     {
