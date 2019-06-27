@@ -81,7 +81,7 @@ class App extends Component {
                     <PrivateRoute path='/dashboard/my-rentals' cards={myRentals} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard' cards={dashboard} component={WelcomePage}/>
                     <Route path='/' render={props => <SignIn {...props} onSubmit={this.handleSignIn}/>}/>
-                    <Route  component={Page404}/>
+                    <Route component={Page404}/>
                 </Switch>
                 <Footer/>
             </div>);

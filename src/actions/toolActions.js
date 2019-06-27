@@ -27,7 +27,7 @@ export const postTools = tools => async dispatch => {
     console.log(JSON.stringify(tools));
     try {
         const response = await toolApi.post('/tools', tools);
-        console.log(response);
+        dispatch({type: types.POST_TOOLS_SUCCESS, payload: response.data})
     } catch(error) {
         console.log(error.response.data);
         dispatch({type: types.POST_TOOLS_FAIL, payload: error.response.data})

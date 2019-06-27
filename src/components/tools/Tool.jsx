@@ -1,39 +1,47 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {deleteTool} from "../../actions/toolActions";
-import {ToolContainer, LargeSubContainer, SubContainer, ButtonContainer, ToolButton, H1, Bold, Italic} from './ToolStyle'
+import {
+    Bold,
+    ButtonContainer,
+    H1,
+    Italic,
+    LargeSubContainer,
+    SubContainer,
+    ToolButton,
+    ToolContainer
+} from './ToolStyle'
 
 
 const Tool = (props) => {
-  return (
-   
-    <ToolContainer>
+    return (
 
-      <SubContainer>
-        <H1>{props.tool.location}</H1>  {/*figure out how to display this*/}
-      </SubContainer>
+        <ToolContainer>
 
-      <SubContainer>
-         <img src={props.tool.image} alt='Non-working Image'/> {/*figure out how to import pic */}
-      </SubContainer>
+            <SubContainer>
+                <H1>{props.tool.location}</H1> {/*figure out how to display this*/}
+            </SubContainer>
 
-      <LargeSubContainer>
-        <Bold>{props.tool.tool_name}</Bold>
-        <Italic>{props.tool.tool_description}</Italic>
-      </LargeSubContainer>
+            <SubContainer>
+                <img src={props.tool.image} alt='Non-working Image'/> {/*figure out how to import pic */}
+            </SubContainer>
 
-      <SubContainer>
-        <H1>{props.tool.status}</H1>{/*figure out how this is going to be displayed pic */}
-      </SubContainer>
+            <LargeSubContainer>
+                <Bold>{props.tool.tool_name}</Bold>
+                <Italic>{props.tool.tool_description}</Italic>
+            </LargeSubContainer>
 
-      <ButtonContainer>
-        <ToolButton>{'Edit Tool'}</ToolButton>
-        <ToolButton onClick={()=>props.deleteTool(props.tool.id)}>{'Delete Tool'}</ToolButton>
-      </ButtonContainer>
+            <SubContainer>
+                <H1>{props.tool.status}</H1>{/*figure out how this is going to be displayed pic */}
+            </SubContainer>
 
-    </ToolContainer>
-  )
+            <ButtonContainer>
+                {props.tool.owner_id === props.userId && <ToolButton>{'Edit Tool'}</ToolButton>}
+                {props.tool.owner_id === props.userId && <ToolButton onClick={() => props.deleteTool(props.tool.id)}>{'Delete Tool'}</ToolButton>}
+            </ButtonContainer>
+
+        </ToolContainer>
+    )
 };
 
 export default connect(null, {deleteTool})(Tool);
