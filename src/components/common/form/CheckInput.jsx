@@ -1,12 +1,17 @@
 import React from 'react';
+import { CheckBoxContainer, H4FormText } from '../../tools/AddToolStyle'
 
 const CheckInput = ({type, label, input, meta: {touched, error}}) => {
     return (
-        <div>
+        <CheckBoxContainer>
+
             <input {...input} type={type}/>
-            <label>{label}</label>
+
+            <H4FormText>{label}</H4FormText>
+
             {touched && error && <span>{error}</span>}
-        </div>
+        </CheckBoxContainer>
+
     )
 };
 

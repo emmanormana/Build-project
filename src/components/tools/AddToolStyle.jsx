@@ -42,13 +42,12 @@ export const TriangleTop = styled.div`
 	border-left: 610px solid transparent;
 	border-right: 610px solid transparent;
 	border-bottom: 274px solid #EDE3C2;
-  margin-top: 173px;
 `;
 
 
 export const Form = styled.form`
   display:flex; 
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   max-height: 503px;
@@ -111,67 +110,113 @@ export const FormGroup = styled.div`
 `;
 
 export const H4Group = styled.div`
-  flex-direction:column;
   display:flex; 
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: flex-start;
   max-height: 503px;
-  max-width: 225px;
-  height: auto;
-  width: 100%;
-  border: 2px solid #869DA7;`;
+  max-width: 503px;
+  height: 100%;
+  width: 470px;
 
-export const SubHeaderContainer = styled.div`
-  width:100%;
-  height:auto;
+  `
+
+export const Container = styled.div`
+display:flex; 
+justify-content: space-between;
+align-items: flex-start;
+max-height: 503px;
+max-width: 1264px;
+height: auto;
+width: 95%;
+margin-top:-250px;
+
+`
+export const ContainerContainer = styled.div`
+display:flex; 
+justify-content: space-between;
+align-items: flex-start;
+max-height: 503px;
+max-width: 1264px;
+height: 475px;
+width: 100%;
+padding-top: 50px;
+
+
+`
+
+export const Container2 = styled.div`
+display:flex; 
+justify-content: flex-start;
+align-items: flex-end;
+max-width: 90%;
+height: 145px;
+width: 100%;
+margin-bottom:50px;
+;
+
+`
+export const Container3 = styled.div`
+display:flex; 
+flex-direction:column;
+justify-content: space-evenly;
+align-items: flex-start;
+max-width: 550px;
+height: 400px;
+width: 80%;
+margin-left:40px;
+
+
+`
+export const Container4 = styled.div`
+display:flex; 
+justify-content:space-between ;
+align-items: flex-start;
+height: 190px;
+width: 100%;
+margin-right:40px;
+padding-top:38px;
+`
+export const Container5 = styled.div`
+display:flex; 
+flex-direction:column;
+justify-content: center;
+align-items: flex-start;
+max-width: 550px;
+height: auto;
+width: 100%;
+margin-right:40px;
+
+`
+  
+  export const CheckBoxContainer = styled.h4`
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width:220px;
+  font-size: 1.8rem;
+  font-weight:600;
+  color: #1E3A46;
+  line-height: 25px;
+`;
+
+export const ImgPlaceholder = styled.div`
+flex-direction:column;
+  display:flex; 
+  justify-content: center;
+  align-items: center;
+  max-height: 294px;
+  max-width: 473px;
+  height: 294px;
+  width: 473px;
   background-color: white;
-  display: flex;
-  justify-content:center;
-  align-items:flex-end;
-  margin-top:20px;
-`;
-
-export const SubContainer = styled.div`
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  height: auto;
-  width:33%;
-  background-color:white;
-
-`;
-
-export const SubContainer1 = styled.div`
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:flex-start;
-  height: auto;
-  width:33%;
-  background-color:white;
-  padding-left: 10px;
-
-`;
-
-export const SubContainer2 = styled.div`
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:flex-start;
-  height: auto;
-  width:33%;
-  background-color:white;
-  padding-left: 65px;
+  color:black;
+  border: 1px solid black;
 `;
 
 ///////////////////////// Containers////////////////////////////
 
-
-
-
-
-//////////////////////buttons/////////////////////
 export const RouteButton = styled.span`
   border: 3px solid #488EAC;	
   border-radius: 7px;
@@ -190,11 +235,67 @@ export const RouteButton = styled.span`
   }
 `;
 
+export const H4 = styled.h4`
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  width:220px;
+  font-size: 1.8rem;
+  font-weight:600;
+  color: #41340C;
+  line-height: 25px;
+  margin-bottom:60px ;
+
+`;
+
+export const OtherH4 = styled.h4`
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  width:220px;
+  font-size: 1.8rem;
+  font-weight:600;
+  color: #41340C;
+  line-height: 25px;
+  margin-bottom:20px ;
+
+`;
+
+export const OtherOtherH4 = styled.h4`
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width:220px;
+  font-size: 1.8rem;
+  font-weight:600;
+  color: #41340C;
+  line-height: 25px;
+  margin-top:47.5px ;
+`;
+
+export const H4FormText = styled.h4`
+  display:flex;
+  align-items: flex;
+  justify-content: flex-start;
+  height: auto;
+  width:220px;
+  /* font-size: 1.8rem; */
+  font-weight:600;
+  color: #41340C;
+  line-height: 25px;
+
+`;
+
+
+
 export const SubmitButton = styled.button`
-  width: 273px;
-  height: 69px;
+  width: 270px;
+  height: 48px;
   border-radius: 6px;
-  background-color: #488EAC;  
+  background-color: #488EAC;
   border: none;
   color: #EDE3C2;
   font-size: 3.2rem;
@@ -202,7 +303,7 @@ export const SubmitButton = styled.button`
   line-height: 44px;
   text-align: center;
   cursor: pointer;  
-  margin-right:0px;
+  margin-right:254px;
   margin-top: 0px;
 
   &:hover {
@@ -210,59 +311,3 @@ export const SubmitButton = styled.button`
     color: #488EAC;
   }
 `;
-//////////////////////buttons/////////////////////
-
-
-
-
-////////////////////text styles////////////////////
-export const H1 = styled.h1`
-	
-  color: #41340C;	
-  font-size: 18px;	
-  line-height: 25px;
-`;
-
-export const Bold = styled.h1`
-	
-  color: #41340C;	
-  font-size: 18px;	
-  line-height: 25px;
-  font-weight: 600;
-`;
-
-export const Italic = styled.h1`
-	
-  color: #41340C;	
-  font-size: 18px;	
-  line-height: 25px;
-  font-style: italic;
-`;
-
-export const H4 = styled.h4`
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  width:225px;
-  font-size: 1.8rem;
-  font-weight:600;
-  color: #41340C;
-  line-height: 25px;
-  border:1px solid red;
-`;
-
-export const H4FormText = styled.h4`
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  width:Auto;
-  font-size: 1.8rem;
-  font-weight:600;
-  color: #1E3A46;
-  line-height: 25px;
-
-`;
-
-

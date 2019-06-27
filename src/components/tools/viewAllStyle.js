@@ -72,6 +72,8 @@ export const SearchButtons = styled.button `
   font-weight: 600;
   color: #488EAC;
   margin-left: 20px;
+  cursor: pointer;
+
   &:hover {
     background-color: #488EAC;
     color: #EDE3C2;
