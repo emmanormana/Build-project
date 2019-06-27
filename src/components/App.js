@@ -46,6 +46,10 @@ class App extends Component {
     };
 
     handleAddTool = async values => {
+        values.rental = values.rental !== undefined;
+        values.my_network = values.my_network !== undefined;
+        values.my_garage_only = values.my_garage_only !== undefined;
+        console.log(values.rental);
         const owner_id = this.props.owner_id;
         const newTool = {...values, owner_id};
         console.table(values);
