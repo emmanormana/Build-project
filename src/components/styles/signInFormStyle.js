@@ -126,6 +126,8 @@ export const ShortLabel = styled.label`
   font-weight: 600;
 `;
 
+
+
 export const Input = styled.input`
   width: 501px;
   height: 40px;
@@ -141,6 +143,16 @@ export const ShortInput = styled.input`
   background: #e9e8e4;
   border-bottom: 1px solid #635710; 
     
+`;
+
+export const LargeInput = styled.input`
+  display:flex;
+  justify-content:flex-start;
+  width: 501px;
+  height: 170px;
+  border: none;
+  background: #e9e8e4;
+  border-bottom: 1px solid #635710;     
 `;
 
 export const SubmitButton = styled.button`
