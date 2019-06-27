@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
+import {Link} from 'react-router-dom';
 import {TextInput2} from "../common/form/TextInput";
 import {FormSearch, SearchButtons, SearchContainer, SearchViewContainer, Bold, Italic, SubContainer, SubHeaderContainer, SubContainer1, SubContainer2,} from "./viewAllStyle";
 import { italic } from 'ansi-colors';
@@ -17,8 +18,8 @@ const ViewToolHeader = () => {
                     </FormSearch>
                 </SearchContainer>
                 <div>
-                    <SearchButtons actionButton>Back to My Tools</SearchButtons>
-                    <SearchButtons actionButton>Back to My Home</SearchButtons>
+                    <SearchButtons actionButton><Link to='/dashboard/my-tools'>Back to My Tools</Link></SearchButtons>
+                    <SearchButtons actionButton><Link to='/dashboard'>Back to My Home</Link></SearchButtons>
                 </div>
             </SearchViewContainer>
 

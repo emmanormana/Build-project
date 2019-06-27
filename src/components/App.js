@@ -86,7 +86,7 @@ const mapStateToProps = state => ({
     isAuth: state.auth.isAuth,
     isAuthLoading: state.auth.isLoading,
     isToolsLoading: state.toolList.isLoading,
-    owner_id: state.auth.user.subject
+    owner_id: state.auth.user.id
 });
 App = withRouter(App);
 const actions = {doSignIn, doCreateAccount, getTools, doSignOut, doWelcomeBack, postTools, putTool, deleteTool};
