@@ -11,4 +11,4 @@ const PrivateRoute = ({component: Component, isAuth, ...rest}) => {
 };
 
 const mapStateToProps = state => ({isAuth: state.auth.isAuth});
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps, {})(PrivateRoute);

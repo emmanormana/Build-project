@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {putTool} from "../../actions/toolActions";
+import toolApi from '../../api/toolsApi'
 import {
     BottomContent,
     CheckBoxContainer,
     Container,
     Container2,
     Container3,
+    Container4,
+    Container5,
     ContainerContainer,
     Form,
     FormTop,
@@ -15,24 +19,57 @@ import {
     H4Group,
     ImgPlaceholder,
     OtherH4,
+    SubmitButton,
     TriangleTop,
-    Wrapper, Container4, Container5, SubmitButton
+    Wrapper
 } from '../tools/AddToolStyle';
 import {LabelPair} from '../styles/createAccountStyle';
-import {InputPair, Label, LargeInput, ShortLabel, ShortInput, Input} from "../styles/signInFormStyle";
+import {Input, InputPair, Label, LargeInput, ShortInput, ShortLabel} from "../styles/signInFormStyle";
 
 class EditTool extends Component {
-    state = {};
+    _isMounted = false;
+    state = {
+        tool_name: '',
+        tool_description: '',
+        rental_price: '',
+        length_of_rental: '',
+        my_network: false,
+        my_garage_only: false,
+        rental: false
+
+    };
+
+
+    async componentDidMount() {
+        this._isMounted=true;
+        try {
+            let response = await toolApi.get(`/tools/${this.props.computedMatch.params.id}`);
+            response.data.my_garage_only = response.data.my_garage_only === 1;
+            response.data.my_network = response.data.my_network === 1;
+            response.data.rental = response.data.rental === 1;
+            this.setState(response.data);
+        } catch (error) {
+            this.setState({});
+        }
+    }
+    componentWillUnmount() {
+        this._isMounted=false;
+    }
 
     onHandleChange = e => this.setState({...this.state, [e.target.name]: e.target.value});
-    onHandleCheckChange = e => this.setState({...this.state, [e.target.name]: e.target.checked});
+    onHandleCheckChange = e => {
+        console.log(e.target.value, e.target.checked, e.target.name);
+        this.setState({...this.state, [e.target.name]: e.target.checked})
+    };
     onHandleSubmit = async e => {
         e.preventDefault();
-        await this.props.putTool(this.state);
-        this.props.history.push('/dashboard/status');
+        await this.props.putTool(this.state).then(()=>this.props.history.push('/dashboard/status')).catch(err=>console.log(err));
+
+        // this.props.history.push('/dashboard/status')
     };
 
     render() {
+        console.log(this.props);
         return (
             <Wrapper>
                 <Container2>
@@ -48,17 +85,18 @@ class EditTool extends Component {
                             <H4Group>
                                 <H4>This tool is available for:</H4>
                                 <CheckBoxContainer>
-                                    <input type='Checkbox' name='my_garage_only' checked={this.state.my_garage_only}
+                                    <input type='checkbox' name='my_garage_only'
+                                           checked={this.state.my_garage_only}
                                            onChange={this.onHandleCheckChange}/>
                                     <H4FormText>My Garage Only</H4FormText>
                                 </CheckBoxContainer>
                                 <CheckBoxContainer>
-                                    <input type='Checkbox' name='my_garage_only' checked={this.state.my_network}
+                                    <input type='checkbox' name='my_network' checked={this.state.my_network}
                                            onChange={this.onHandleCheckChange}/>
                                     <H4FormText>My Network</H4FormText>
                                 </CheckBoxContainer>
                                 <CheckBoxContainer>
-                                    <input type='Checkbox' name='my_garage_only' checked={this.state.rental}
+                                    <input type='checkbox' name='rental' checked={this.state.rental}
                                            onChange={this.onHandleCheckChange}/>
                                     <H4FormText>Rental</H4FormText>
                                 </CheckBoxContainer>
@@ -78,7 +116,8 @@ class EditTool extends Component {
                                         <Label>Tool Description</Label>
                                     </LabelPair>
                                     <LargeInput placeholder='Tool Description' type='textarea' name='tool_description'
-                                           value={this.state.tool_description} onChange={this.onHandleChange}/>
+                                                value={this.state.tool_description}
+                                                onChange={this.onHandleChange}/>
                                 </InputPair>
                             </Container3>
                             <Container5>
@@ -88,14 +127,15 @@ class EditTool extends Component {
                                             <ShortLabel>Price</ShortLabel>
                                         </LabelPair>
                                         <ShortInput placeholder='Tool Name' type='text' name='rental_price'
-                                               value={this.state.rental_price} onChange={this.onHandleChange}/>
+                                                    value={this.state.rental_price}
+                                                    onChange={this.onHandleChange}/>
                                     </InputPair>
                                     <InputPair>
                                         <LabelPair>
                                             <Label>Length of Rental</Label>
                                         </LabelPair>
                                         <ShortInput placeholder='Length of Rental' type='text' name='length_of_rental'
-                                               value={this.state.tool_name} onChange={this.onHandleChange}/>
+                                                    value={this.state.tool_name} onChange={this.onHandleChange}/>
                                     </InputPair>
                                 </Container4>
                                 <SubmitButton>Update Tool</SubmitButton>
@@ -108,5 +148,6 @@ class EditTool extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({tool: state.toolList.tools[ownProps.match.params.id]});
+const mapStateToProps = state => ({isLoading: state.toolList.isLoading})
+EditTool = withRouter(EditTool);
 export default connect(mapStateToProps, {putTool})(EditTool);
