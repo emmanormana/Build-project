@@ -37,14 +37,21 @@ export default (state = initialState, action) => {
         case types.POST_TOOLS_START:
             return {...state, isLoading: true, errors: null};
         case types.POST_TOOLS_SUCCESS:
-            const updatedToolList = [...state.tools, payload];
-            return {...state, isLoading: false, errors: null, tools: updatedToolList, isSuccess: true};
+            const updatedPOSTToolList = [...state.tools, payload];
+            return {...state, isLoading: false, errors: null, tools: updatedPOSTToolList, isSuccess: true};
         case types.POST_TOOLS_FAIL:
             return {...state, isLoading: false, errors: payload, isSuccess: false};
         case types.PUT_TOOL_START:
             return {...state, isLoading: true, errors: null};
         case types.PUT_TOOL_SUCCESS:
-            return {...state, isLoading: false, errors: null, tools: payload, isSuccess: true};
+            const updatedPUTToolList = state.tools.map(tool => {
+                if (tool.id === payload.id) {
+                    return payload;
+                } else {
+                    return tool;
+                }
+            });
+            return {...state, isLoading: false, errors: null, tools: updatedPUTToolList, isSuccess: true};
         case types.PUT_TOOL_FAIL:
             return {...state, isLoading: false, errors: payload, isSuccess: false};
         case types.DELETE_TOOL_START:

@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {deleteTool} from "../../actions/toolActions";
 import {
     Bold,
@@ -36,7 +37,7 @@ const Tool = (props) => {
             </SubContainer>
 
             <ButtonContainer>
-                {props.tool.owner_id === props.userId && <ToolButton>{'Edit Tool'}</ToolButton>}
+                {props.tool.owner_id === props.userId && <ToolButton><Link to={`/dashboard/edit-tool/${props.tool.id}`}>{'Edit Tool'}</Link></ToolButton>}
                 {props.tool.owner_id === props.userId && <ToolButton onClick={() => props.deleteTool(props.tool.id)}>{'Delete Tool'}</ToolButton>}
             </ButtonContainer>
 

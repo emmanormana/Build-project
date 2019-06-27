@@ -5,4 +5,4 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import {authMiddleware} from './customMiddleware/authMiddleware';
 
-export default createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, authMiddleware)));
+export default createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk,logger, authMiddleware)));
