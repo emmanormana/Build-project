@@ -4,22 +4,39 @@ import TextInput from '../common/form/TextInput';
 import CheckInput from '../common/form/CheckInput';
 import {Field, reduxForm} from 'redux-form';
 
-const locations = ['My Garage Only', 'My Network', 'Rental'];
+
+const locations = [{
+    dbName: 'my_garage_only',
+    label: 'My Garage Only'
+},
+    {
+        dbName: 'my_network',
+        label: 'My Network'
+    },
+    {
+        dbName: 'rental',
+        label: 'Rental'
+    }
+
+];
 
 class AddTool extends Component {
+
     render() {
+        const {handleSubmit, pristine, submitting} = this.props;
         return (
             <div>
                 <h1>Add a Tool</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <Field name='tool_name' placeholder='Tool Name' component={TextInput} label='Tool Name'/>
                     <Field name='tool_description' placeholder='Tool Description' component={TextInput}
                            label='Tool Description'/>
-                    <Field name='location' type='checkbox' options={locations} component={CheckInput}/>
+                    {locations.map((location, i) => <Field name={location.dbName} key={i} type='checkbox' label={location.label}
+                                                           component={CheckInput}/>)}
                     <Field name='rental_price' placeholder='Price' label='Price' component={TextInput}/>
-                    <Field name='length_of_time' placehodler='Length of Time' label='Length of Time'
+                    <Field name='length_of_rental' placehodler='Length of Time' label='Length of Time'
                            component={TextInput}/>
-                    <button>Add to My Tools</button>
+                    <button type='submit' disabled={pristine || submitting}>Add to My Tools</button>
                 </form>
             </div>
         );
