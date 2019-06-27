@@ -11,7 +11,7 @@ const SuccessScreen = props => {
             <button><Link to='/dashboard'>Go Home</Link></button>
             </>
     )
-}
+};
 
 const mapStateToProps = state => ({isSuccess:state.toolList.isSuccess});
 

@@ -15,6 +15,8 @@ import PrivateRoute from "./common/PrivateRoute";
 import WelcomePage from "./tools/WelcomePage";
 import AddTool from './tools/AddTool';
 import SuccessScreen from './tools/SuccessScreen';
+import ComingSoon from './tools/ComingSoon';
+import Page404 from './common/Page404'
 import {doCreateAccount, doSignIn, doSignOut, doWelcomeBack} from "../actions/authActions";
 import {borrowTool, dashboard, myRentals, myTools} from './common/data/welcomePageData'
 import jwt_decode from "jwt-decode";
@@ -56,7 +58,8 @@ class App extends Component {
     render() {
         const {isAuthLoading, isToolsLoading} = this.props;
         if (isAuthLoading || isToolsLoading) {
-            return <Loader type='Ball-Triangle' color='Black' height='100' width='100' style={{width: '100vw', height: '100vh', margin:'auto'}}/>
+            return <Loader type='Ball-Triangle' color='Black' height='100' width='100'
+                           style={{width: '100vw', height: '100vh', margin: 'auto'}}/>
         } else {
             return (<div className='container'>
                 <GlobalStyle/>
@@ -67,7 +70,8 @@ class App extends Component {
                            render={props => <CreateAccount {...props}
                                                            onSubmit={this.handleCreateAccount}/>}
                     />
-                    <PrivateRoute path='/dashboard/status' component={SuccessScreen} />
+                    <PrivateRoute path='/dashboard/coming-soon' component={ComingSoon}/>
+                    <PrivateRoute path='/dashboard/status' component={SuccessScreen}/>
                     <PrivateRoute path='/dashboard/view-my-tools' all={false} component={Tools}/>
                     <PrivateRoute path='/dashboard/view-all-tools' all={true} component={Tools}/>
                     <PrivateRoute path='/dashboard/add-tool' onSubmit={this.handleAddTool} component={AddTool}/>
@@ -76,8 +80,8 @@ class App extends Component {
                     <PrivateRoute path='/dashboard/my-tools' cards={myTools} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard/my-rentals' cards={myRentals} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard' cards={dashboard} component={WelcomePage}/>
-
                     <Route path='/' render={props => <SignIn {...props} onSubmit={this.handleSignIn}/>}/>
+                    <Route  component={Page404}/>
                 </Switch>
                 <Footer/>
             </div>);
