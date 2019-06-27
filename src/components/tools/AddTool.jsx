@@ -4,19 +4,31 @@ import {} from "../common/form/TextInput";
 import {TextInput, TextInput2, TextInput3} from '../common/form/TextInput';
 import CheckInput from '../common/form/CheckInput';
 import {Field, reduxForm} from 'redux-form';
-
 import { BottomContent, Form, FormTop, H4, OtherH4, OtherOtherH4, SubmitButton, Wrapper, TriangleTop, H4Group, ImgPlaceholder,ContainerContainer, Container, Container2, Container3, Container4, Container5 } 
   from '../tools/AddToolStyle';
-  
 
 
+const locations = [{
+    dbName: 'my_garage_only',
+    label: 'My Garage Only'
+},
+    {
+        dbName: 'my_network',
+        label: 'My Network'
+    },
+    {
+        dbName: 'rental',
+        label: 'Rental'
+    }
 
-const locations = ['My Garage Only', 'My Network', 'Rental'];
+];
+
 
 class AddTool extends Component {
-    render() {
-        return (
 
+    render() {
+        const {handleSubmit, pristine, submitting} = this.props;
+        return (
             <Wrapper>
 
                 <Container2>
@@ -87,6 +99,7 @@ class AddTool extends Component {
                     </Form>
                 </BottomContent>
             </Wrapper>
+
         );
     }
 }

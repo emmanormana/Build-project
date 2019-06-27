@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Route, Switch, withRouter} from 'react-router-dom';
-import {getTools, postTools} from '../actions/toolActions';
+import {deleteTool, getTools, postTools, putTool} from '../actions/toolActions';
 
 
 import Tools from './tools/Tools';
@@ -47,23 +47,28 @@ class App extends Component {
 
     };
 
+    handleUpdateTool = async values => {
+        await this.props.putTool(values);
+    };
+
     render() {
         const {isAuthLoading, isToolsLoading} = this.props;
         if (isAuthLoading || isToolsLoading) {
-            return <Loader type='Ball-Triangle' color='Yellow' height='100' width='100'/>
+            return <Loader type='Ball-Triangle' color='Black' height='100' width='100' style={{width: '100vw', height: '100vh', margin:'auto'}}/>
         } else {
             return (<div className='container'>
-                <GlobalStyle />
+                <GlobalStyle/>
                 <Navigation/>
                 <Switch>
 
                     <Route path='/create-account'
-                            render={props => <CreateAccount {...props}
-                            onSubmit={this.handleCreateAccount}/>}
+                           render={props => <CreateAccount {...props}
+                                                           onSubmit={this.handleCreateAccount}/>}
                     />
                     <PrivateRoute path='/dashboard/view-my-tools' all={false} component={Tools}/>
-                    <PrivateRoute path='/dashboard/view-all-tools' all={true} component={Tools} />
-                    <PrivateRoute path='/dashboard/add-tool' onSubmit={this.handleAddTool} component={AddTool} />
+                    <PrivateRoute path='/dashboard/view-all-tools' all={true} component={Tools}/>
+                    <PrivateRoute path='/dashboard/add-tool' onSubmit={this.handleAddTool} component={AddTool}/>
+                    <PrivateRoute path='/dashboard/edit-tool/:id' onSubmit={this.handleUpdateTool} component={AddTool}/>
                     <PrivateRoute path='/dashboard/borrow-tool' cards={borrowTool} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard/my-tools' cards={myTools} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard/my-rentals' cards={myRentals} component={WelcomePage}/>
@@ -81,8 +86,8 @@ const mapStateToProps = state => ({
     isAuth: state.auth.isAuth,
     isAuthLoading: state.auth.isLoading,
     isToolsLoading: state.toolList.isLoading,
-    owner_id:state.auth.user.id
+    owner_id: state.auth.user.subject
 });
 App = withRouter(App);
-
-export default connect(mapStateToProps, {doSignIn, doCreateAccount, getTools, doSignOut, doWelcomeBack, postTools})(App);
+const actions = {doSignIn, doCreateAccount, getTools, doSignOut, doWelcomeBack, postTools, putTool, deleteTool};
+export default connect(mapStateToProps, actions)(App);

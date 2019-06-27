@@ -24,11 +24,13 @@ export const getTool = id => async dispatch => {
 
 export const postTools = tools => async dispatch => {
     dispatch({type: types.POST_TOOLS_START});
+    console.log(JSON.stringify(tools));
     try {
         const response = await toolApi.post('/tools', tools);
         console.log(response);
     } catch(error) {
-        console.log(error);
+        console.log(error.response.data);
+        dispatch({type: types.POST_TOOLS_FAIL, payload: error.response.data})
     }
 };
 

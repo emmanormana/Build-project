@@ -1,4 +1,7 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {deleteTool} from "../../actions/toolActions";
 import {ToolContainer, LargeSubContainer, SubContainer, ButtonContainer, ToolButton, H1, Bold, Italic} from './ToolStyle'
 
 
@@ -12,7 +15,7 @@ const Tool = (props) => {
       </SubContainer>
 
       <SubContainer>
-         <image>{props.tool.image}</image>  {/*figure out how to import pic */}
+         <img src={props.tool.image} alt='Non-working Image'/> {/*figure out how to import pic */}
       </SubContainer>
 
       <LargeSubContainer>
@@ -26,11 +29,11 @@ const Tool = (props) => {
 
       <ButtonContainer>
         <ToolButton>{'Edit Tool'}</ToolButton>
-        <ToolButton>{'Delete Tool'}</ToolButton>
+        <ToolButton onClick={()=>props.deleteTool(props.tool.id)}>{'Delete Tool'}</ToolButton>
       </ButtonContainer>
 
     </ToolContainer>
   )
 };
 
-export default Tool;
+export default connect(null, {deleteTool})(Tool);

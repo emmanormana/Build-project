@@ -22,6 +22,7 @@ export default (state = initialState, action) => {
             return {...state, isLoading: true, errors: null, isAuth: false, user: {}};
         case types.CREATE_USER_SUCCESS:
             const newUser = jwt_decode(payload.token);
+            console.log(newUser);
             return {...state, isLoading: false, errors: null, isAuth: true, user: newUser};
         case types.CREATE_USER_FAIL:
             return {...state, isLoading: false, errors: payload, isAuth: false, user: {}};

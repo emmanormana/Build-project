@@ -11,6 +11,7 @@ const CheckInput = ({type, label, input, meta: {touched, error}}) => {
 
             {touched && error && <span>{error}</span>}
         </CheckBoxContainer>
+
     )
 };
 
