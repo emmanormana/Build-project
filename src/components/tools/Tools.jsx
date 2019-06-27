@@ -5,7 +5,7 @@ import ViewToolHeader from "./ViewToolHeader";
 
 
 const Tools = (props) => {
-    const {tools} = props;
+    const {tools, user_id} = props;
     if (tools.length === 0) {
         return <h1>You have no tools</h1>
     } else {
@@ -13,7 +13,7 @@ const Tools = (props) => {
 
             <div>
                 <ViewToolHeader />
-                {props.tools.map((tool) => <Tool key={tool.id} tool={tool}/>)}
+                {props.tools.map((tool) => <Tool key={tool.id} tool={tool} userId={user_id} />)}
             </div>
         )
     }
@@ -22,7 +22,7 @@ const Tools = (props) => {
 const mapStateToProps = (state, ownProps) => {
     const toolList = ownProps.all ? state.toolList.tools : state.toolList.tools.filter(tool => tool.owner_id === state.auth.user.id);
     return {
-        tools: toolList
+        tools: toolList, user_id: state.auth.user.id
     }
 };
 

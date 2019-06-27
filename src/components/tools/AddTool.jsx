@@ -25,7 +25,9 @@ const locations = [{
 
 
 class AddTool extends Component {
+    state = {
 
+    }
     render() {
         const {handleSubmit, pristine, submitting} = this.props;
         return (
