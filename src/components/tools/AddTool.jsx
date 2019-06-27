@@ -41,13 +41,13 @@ class AddTool extends Component {
                     </FormTop>
                 </TriangleTop>
                 <BottomContent>
-                <Form>
+                <Form onSubmit={handleSubmit}>
 
                 <Container>  
                     <ImgPlaceholder>**Add Awesome Looking Tool Here**</ImgPlaceholder>
                     <H4Group>   
                         <H4>This tool is available for:</H4>
-                        {locations.map((location,i) => <Field name={location} key={i} type='checkbox' label={location} component={CheckInput}/>)}
+                        {locations.map((location,i) => <Field name={location.dbName} key={i} type='checkbox' label={location.label} component={CheckInput}/>)}
                         </H4Group>
                 </Container>
 
@@ -89,7 +89,7 @@ class AddTool extends Component {
                                 component={TextInput2}
                             />
                             </Container4>
-                                <SubmitButton>Add to My Tools</SubmitButton>
+                                <SubmitButton disabled={pristine || submitting}>Add to My Tools</SubmitButton>
                         
                         
                     </Container5>
