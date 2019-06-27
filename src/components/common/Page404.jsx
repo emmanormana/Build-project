@@ -7,7 +7,11 @@ class Page404 extends Component {
 
     render() {
         return (
+            <>
+
             <h1>404, Page not found, redirecting you in 10 seconds</h1>
+                <button>Home</button>
+                </>
         )
     }
 }

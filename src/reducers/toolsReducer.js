@@ -37,7 +37,8 @@ export default (state = initialState, action) => {
         case types.POST_TOOLS_START:
             return {...state, isLoading: true, errors: null};
         case types.POST_TOOLS_SUCCESS:
-            return {...state, isLoading: false, errors: null, tools: payload, isSuccess: true};
+            const updatedToolList = [...state.tools, payload]
+            return {...state, isLoading: false, errors: null, tools: updatedToolList, isSuccess: true};
         case types.POST_TOOLS_FAIL:
             return {...state, isLoading: false, errors: payload, isSuccess: false};
         case types.PUT_TOOL_START:

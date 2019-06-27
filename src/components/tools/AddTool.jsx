@@ -83,7 +83,7 @@ class AddTool extends Component {
                             <OtherOtherH4>Per</OtherOtherH4>
 
                             <Field 
-                                name='length_of_time' 
+                                name='length_of_rental'
                                 placehodler='Length of Time' 
                                 label='Length of Time'
                                 component={TextInput2}
