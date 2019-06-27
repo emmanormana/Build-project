@@ -12,7 +12,7 @@ import {
     ToolButton,
     ToolContainer
 } from './ToolStyle'
-
+import toolImage from '../../imgs/luther-bottrill-1638257-unsplash.png';
 
 const Tool = (props) => {
     return (
@@ -20,11 +20,11 @@ const Tool = (props) => {
         <ToolContainer>
 
             <SubContainer>
-                <H1>{props.tool.location}</H1> {/*figure out how to display this*/}
+                <H1>{`Loaned Out`}</H1> {/*figure out how to display this*/}
             </SubContainer>
 
             <SubContainer>
-                <img src={props.tool.image} alt='Non-working Image'/> {/*figure out how to import pic */}
+                <img src={toolImage} alt='A table saw!'/> {/*figure out how to import pic */}
             </SubContainer>
 
             <LargeSubContainer>

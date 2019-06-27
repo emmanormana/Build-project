@@ -28,8 +28,8 @@ export const putTool = tools => async dispatch => {
     dispatch({type: types.PUT_TOOL_START});
     try {
         const response = await toolApi.put(`/tools/${tools.id}`, tools);
-        console.log(response);
-        dispatch({type: types.PUT_TOOL_SUCCESS, payload: tools})
+        const response2 = await toolApi.get('/tools');
+        dispatch({type: types.PUT_TOOL_SUCCESS, payload: response2.data})
     } catch (error) {
         dispatch({type: types.PUT_TOOL_FAIL, payload: error})
     }

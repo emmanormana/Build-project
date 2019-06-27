@@ -27,7 +27,7 @@ import {LabelPair} from '../styles/createAccountStyle';
 import {Input, InputPair, Label, LargeInput, ShortInput, ShortLabel} from "../styles/signInFormStyle";
 
 class EditTool extends Component {
-    _isMounted = false;
+
     state = {
         tool_name: '',
         tool_description: '',
@@ -41,7 +41,7 @@ class EditTool extends Component {
 
 
     async componentDidMount() {
-        this._isMounted=true;
+
         try {
             let response = await toolApi.get(`/tools/${this.props.computedMatch.params.id}`);
             response.data.my_garage_only = response.data.my_garage_only === 1;
@@ -52,20 +52,12 @@ class EditTool extends Component {
             this.setState({});
         }
     }
-    componentWillUnmount() {
-        this._isMounted=false;
-    }
+
 
     onHandleChange = e => this.setState({...this.state, [e.target.name]: e.target.value});
     onHandleCheckChange = e => {
         console.log(e.target.value, e.target.checked, e.target.name);
         this.setState({...this.state, [e.target.name]: e.target.checked})
-    };
-    onHandleSubmit = async e => {
-        e.preventDefault();
-        await this.props.putTool(this.state).then(()=>this.props.history.push('/dashboard/status')).catch(err=>console.log(err));
-
-        // this.props.history.push('/dashboard/status')
     };
 
     render() {
@@ -79,7 +71,7 @@ class EditTool extends Component {
                     <FormTop/>
                 </TriangleTop>
                 <BottomContent>
-                    <Form onSubmit={this.onHandleSubmit}>
+                    <Form onSubmit={()=>this.props.handleSubmit(this.state)}>
                         <Container>
                             <ImgPlaceholder>**Add Awesome Looking Tool Here&&</ImgPlaceholder>
                             <H4Group>
@@ -148,6 +140,5 @@ class EditTool extends Component {
     }
 }
 
-const mapStateToProps = state => ({isLoading: state.toolList.isLoading})
-EditTool = withRouter(EditTool);
+const mapStateToProps = state => ({isLoading: state.toolList.isLoading});
 export default connect(mapStateToProps, {putTool})(EditTool);

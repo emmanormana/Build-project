@@ -42,7 +42,7 @@ class App extends Component {
         const {first_name, last_name, email, password} = values;
 
         await this.props.doCreateAccount({first_name, last_name, email, password});
-        this.props.isAuth && this.props.history.push('/dashboard');
+        this.props.isSuccess && this.props.history.push('/')
     };
 
     handleAddTool = async values => {
@@ -52,6 +52,11 @@ class App extends Component {
         await this.props.postTools(newTool);
         this.props.history.push('/dashboard/status');
     };
+
+    handleUpdateTool = async values => {
+        await this.props.putTool(values);
+        this.props.history.push('/dashboard/status');
+    }
 
     render() {
         const {isAuthLoading, isToolsLoading} = this.props;
@@ -73,7 +78,7 @@ class App extends Component {
                     <PrivateRoute path='/dashboard/view-my-tools' all={false} component={Tools}/>
                     <PrivateRoute path='/dashboard/view-all-tools' all={true} component={Tools}/>
                     <PrivateRoute path='/dashboard/add-tool' onSubmit={this.handleAddTool} component={AddTool}/>
-                    <PrivateRoute path='/dashboard/edit-tool/:id'  component={EditTool}/>
+                    <PrivateRoute path='/dashboard/edit-tool/:id' handleSubmit={this.handleUpdateTool} component={EditTool}/>
                     <PrivateRoute path='/dashboard/borrow-tool' cards={borrowTool} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard/my-tools' cards={myTools} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard/my-rentals' cards={myRentals} component={WelcomePage}/>
@@ -91,7 +96,8 @@ const mapStateToProps = state => ({
     isAuth: state.auth.isAuth,
     isAuthLoading: state.auth.isLoading,
     isToolsLoading: state.toolList.isLoading,
-    owner_id: state.auth.user.id
+    owner_id: state.auth.user.id,
+    isSuccess: state.auth.isSuccess
 });
 App = withRouter(App);
 const actions = {doSignIn, doCreateAccount, getTools, doSignOut, doWelcomeBack, postTools, putTool, deleteTool};
