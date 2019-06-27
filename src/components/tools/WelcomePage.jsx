@@ -23,7 +23,7 @@ const WelcomePage = props => {
                     <QuickLink onClick={() => setToggle(!toggle)}>Quick Links<FontAwesomeIcon
                         icon={faCaretDown}/></QuickLink>
 
-                    {toggle && <Link to='/add-tool'><QuickLink child>Add a Tool</QuickLink></Link>}
+                    {toggle && <Link to='/dashboard/add-tool'><QuickLink child>Add a Tool</QuickLink></Link>}
 
                     {toggle &&
                     <Link to='/dashboard/borrow-tool' onClick={() => setToggle(!toggle)}><QuickLink child>Borrow a
