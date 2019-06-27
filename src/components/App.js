@@ -14,6 +14,7 @@ import CreateAccount from "./auth/CreateAccount";
 import PrivateRoute from "./common/PrivateRoute";
 import WelcomePage from "./tools/WelcomePage";
 import AddTool from './tools/AddTool';
+import SuccessScreen from './tools/SuccessScreen';
 import {doCreateAccount, doSignIn, doSignOut, doWelcomeBack} from "../actions/authActions";
 import {borrowTool, dashboard, myRentals, myTools} from './common/data/welcomePageData'
 import jwt_decode from "jwt-decode";
@@ -44,11 +45,12 @@ class App extends Component {
         const owner_id = this.props.owner_id;
         const newTool = {...values, owner_id};
         await this.props.postTools(newTool);
-
+        this.props.history.push('/dashboard/status');
     };
 
     handleUpdateTool = async values => {
         await this.props.putTool(values);
+        this.props.history.push('/dashboard/status');
     };
 
     render() {
@@ -65,6 +67,7 @@ class App extends Component {
                            render={props => <CreateAccount {...props}
                                                            onSubmit={this.handleCreateAccount}/>}
                     />
+                    <PrivateRoute path='/dashboard/status' component={SuccessScreen} />
                     <PrivateRoute path='/dashboard/view-my-tools' all={false} component={Tools}/>
                     <PrivateRoute path='/dashboard/view-all-tools' all={true} component={Tools}/>
                     <PrivateRoute path='/dashboard/add-tool' onSubmit={this.handleAddTool} component={AddTool}/>
