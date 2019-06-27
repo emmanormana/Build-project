@@ -12,7 +12,7 @@ const Tools = (props) => {
         return (
 
             <div>
-                <ViewToolHeader/>
+                <ViewToolHeader />
                 {props.tools.map((tool) => <Tool key={tool.id} tool={tool}/>)}
             </div>
         )

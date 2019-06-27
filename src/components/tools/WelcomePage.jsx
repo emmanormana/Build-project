@@ -16,7 +16,7 @@ const WelcomePage = props => {
             <Image dashboard src={heroImage} alt='Various Tools'/>
 
             <Trianglebox>
-                {/* Add ${user}  ? */}
+                
                 <User>{`Welcome ${first_name}!`}</User>
                 <QuickLinkContainer>
 

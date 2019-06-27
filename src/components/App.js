@@ -58,7 +58,9 @@ class App extends Component {
                 <Switch>
 
                     <Route path='/create-account'
-                           render={props => <CreateAccount {...props} onSubmit={this.handleCreateAccount}/>}/>
+                            render={props => <CreateAccount {...props}
+                            onSubmit={this.handleCreateAccount}/>}
+                    />
                     <PrivateRoute path='/dashboard/view-my-tools' all={false} component={Tools}/>
                     <PrivateRoute path='/dashboard/view-all-tools' all={true} component={Tools} />
                     <PrivateRoute path='/dashboard/add-tool' onSubmit={this.handleAddTool} component={AddTool} />

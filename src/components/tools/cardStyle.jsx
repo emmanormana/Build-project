@@ -71,6 +71,7 @@ export const QuickLink = styled.p`
   font-size: 1.8rem;
   font-weight: 600;
   line-height: 25px;
+  cursor: pointer;
   &:hover {
       text-decoration: underline};
   ${props => props.child && css`

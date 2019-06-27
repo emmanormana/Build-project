@@ -25,7 +25,7 @@ const Tool = (props) => {
       </SubContainer>
 
       <ButtonContainer>
-        <ToolButton>{'Edit Tool '}</ToolButton>
+        <ToolButton>{'Edit Tool'}</ToolButton>
         <ToolButton>{'Delete Tool'}</ToolButton>
       </ButtonContainer>
 

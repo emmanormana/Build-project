@@ -6,6 +6,7 @@ const Footer = () => {
   return (
     <FooterStyle>
       <div className="footer-container">
+        
         <div className='left-content'>
           <h4>About Use My Tools</h4>
           <div className='text-content'>
@@ -13,6 +14,7 @@ const Footer = () => {
             <p>Careers</p>
           </div>
         </div>
+
         <div className='center-content'>
           <h4>Legal</h4>
           <div className='text-content'>
@@ -20,6 +22,7 @@ const Footer = () => {
             <p>Dispute Process</p>
           </div>
         </div>
+
         <div className='right-content'>
           <h4>Contact Us</h4>
           <div className='text-content'>
@@ -29,6 +32,7 @@ const Footer = () => {
             <p>phone 888-122-6565</p>
           </div>
         </div>
+
       </div>
     </FooterStyle>);
 };
