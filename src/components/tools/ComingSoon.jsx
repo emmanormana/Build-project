@@ -7,30 +7,31 @@ import Logo from '../../imgs/favicon-96x96.png';
 
 const ComingSoon = props => {
     return (
-        <Wrapper>
-            <FormTop>
-                <TriangleTop>
-                </TriangleTop>
-            </FormTop>
+      <Wrapper>
 
-            <BottomContent>
-                <Form>
-                    <Container>
-                        <img src={Logo} alt="use my tools logo"/>
-                        <H4>Coming Soon</H4>
-                        <img src={Logo} alt="use my tools logo"/>
-                    </Container>
+        <FormTop>
+          <TriangleTop>
+          </TriangleTop>
+        </FormTop>
 
-                    <ButtonContainer>
-                        <SubmitButton>
-                            <Link to='/dashboard'>Return Home</Link>
-                        </SubmitButton>
-                    </ButtonContainer>
+        <BottomContent>
+          <Form>
 
-                </Form>
-            </BottomContent>
+            <Container>
+              <img src={Logo} alt="use my tools logo"/>
+              <H4>Coming Soon</H4>
+              <img src={Logo} alt="use my tools logo"/>
+            </Container>
 
-        </Wrapper>
+            <ButtonContainer>
+              <SubmitButton>
+                <Link to='/dashboard'>Return Home</Link>
+              </SubmitButton>
+            </ButtonContainer>
+
+          </Form>
+        </BottomContent>
+      </Wrapper>
     )
 }
 
