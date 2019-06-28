@@ -2,8 +2,18 @@ import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 import {TextInput2} from "../common/form/TextInput";
-import {FormSearch, SearchButtons, SearchContainer, SearchViewContainer, Bold, Italic, SubContainer, SubHeaderContainer, SubContainer1, SubContainer2,} from "./viewAllStyle";
-import { italic } from 'ansi-colors';
+import {
+    Bold,
+    FormSearch,
+    Italic,
+    SearchButtons,
+    SearchContainer,
+    SearchViewContainer,
+    SubContainer,
+    SubContainer1,
+    SubContainer2,
+    SubHeaderContainer,
+} from "./viewAllStyle";
 
 
 const ViewToolHeader = () => {
@@ -12,7 +22,8 @@ const ViewToolHeader = () => {
             <SearchViewContainer>
                 <SearchContainer>
                     <FormSearch>
-                        <Field name='search' type='text' component={TextInput2} label='Tool Search' placeholder='Search'/>
+                        <Field name='search' type='text' component={TextInput2} label='Tool Search'
+                               placeholder='Search'/>
 
                         <SearchButtons>Search</SearchButtons>
                     </FormSearch>

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {putTool} from "../../actions/toolActions";
 import toolApi from '../../api/toolsApi'
@@ -56,12 +55,10 @@ class EditTool extends Component {
 
     onHandleChange = e => this.setState({...this.state, [e.target.name]: e.target.value});
     onHandleCheckChange = e => {
-        console.log(e.target.value, e.target.checked, e.target.name);
         this.setState({...this.state, [e.target.name]: e.target.checked})
     };
 
     render() {
-        console.log(this.props);
         return (
             <Wrapper>
                 <Container2>
@@ -71,7 +68,7 @@ class EditTool extends Component {
                     <FormTop/>
                 </TriangleTop>
                 <BottomContent>
-                    <Form onSubmit={()=>this.props.handleSubmit(this.state)}>
+                    <Form onSubmit={() => this.props.handleSubmit(this.state)}>
                         <Container>
                             <ImgPlaceholder>**Add Awesome Looking Tool Here&&</ImgPlaceholder>
                             <H4Group>
@@ -130,7 +127,7 @@ class EditTool extends Component {
                                                     value={this.state.tool_name} onChange={this.onHandleChange}/>
                                     </InputPair>
                                 </Container4>
-                                <SubmitButton>Update Tool</SubmitButton>
+                                <SubmitButton type="submit">Update Tool</SubmitButton>
                             </Container5>
                         </ContainerContainer>
                     </Form>

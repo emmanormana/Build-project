@@ -17,7 +17,7 @@ export const doCreateAccount = newUserDetails => async dispatch => {
     dispatch({type: types.CREATE_USER_START});
     try {
         const response = await toolsApi.post('/auth/register', newUserDetails);
-        dispatch({type: types.CREATE_USER_SUCCESS, payload: {message:'User was created successfully'}});
+        dispatch({type: types.CREATE_USER_SUCCESS, payload: {message: 'User was created successfully'}});
     } catch (error) {
         dispatch({type: types.CREATE_USER_FAIL, payload: error.response.data});
     }
@@ -34,4 +34,4 @@ export const doSignOut = () => dispatch => {
 
 export const doWelcomeBack = token => {
     return ({type: types.WELCOME_BACK, payload: token})
-}
+};

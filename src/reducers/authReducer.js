@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
         case types.CREATE_USER_START:
             return {...state, isLoading: true, errors: null, isAuth: false, user: {}, isSuccess: false};
         case types.CREATE_USER_SUCCESS:
-            return {...state, isLoading: false, errors: null, isAuth: false, user: {},isSuccess: true};
+            return {...state, isLoading: false, errors: null, isAuth: false, user: {}, isSuccess: true};
         case types.CREATE_USER_FAIL:
             return {...state, isLoading: false, errors: payload, isAuth: false, user: {}, isSuccess: false};
         case types.LOGOUT_START:
@@ -33,7 +33,7 @@ export default (state = initialState, action) => {
             return {...state, isLoading: false, errors: 'An unknown error has occurred', isSuccess: false};
         case types.WELCOME_BACK:
             const wbUser = jwt_decode(payload);
-            return {...state, isLoading: false, errors: null, isAuth:true, user:wbUser, isSuccess: false}
+            return {...state, isLoading: false, errors: null, isAuth: true, user: wbUser, isSuccess: false};
         default:
             return state;
     }

@@ -49,10 +49,8 @@ class App extends Component {
         values.rental = values.rental !== undefined;
         values.my_network = values.my_network !== undefined;
         values.my_garage_only = values.my_garage_only !== undefined;
-        console.log(values.rental);
         const owner_id = this.props.owner_id;
         const newTool = {...values, owner_id};
-        console.table(values);
         await this.props.postTools(newTool);
         this.props.history.push('/dashboard/status');
     };
@@ -60,7 +58,7 @@ class App extends Component {
     handleUpdateTool = async values => {
         await this.props.putTool(values);
         this.props.history.push('/dashboard/status');
-    }
+    };
 
     render() {
         const {isAuthLoading, isToolsLoading} = this.props;
@@ -82,7 +80,8 @@ class App extends Component {
                     <PrivateRoute path='/dashboard/view-my-tools' all={false} component={Tools}/>
                     <PrivateRoute path='/dashboard/view-all-tools' all={true} component={Tools}/>
                     <PrivateRoute path='/dashboard/add-tool' onSubmit={this.handleAddTool} component={AddTool}/>
-                    <PrivateRoute path='/dashboard/edit-tool/:id' handleSubmit={this.handleUpdateTool} component={EditTool}/>
+                    <PrivateRoute path='/dashboard/edit-tool/:id' handleSubmit={this.handleUpdateTool}
+                                  component={EditTool}/>
                     <PrivateRoute path='/dashboard/borrow-tool' cards={borrowTool} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard/my-tools' cards={myTools} component={WelcomePage}/>
                     <PrivateRoute path='/dashboard/my-rentals' cards={myRentals} component={WelcomePage}/>
