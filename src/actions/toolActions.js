@@ -8,18 +8,15 @@ export const getTools = () => async dispatch => {
 		dispatch({ type: types.GET_TOOLS_SUCCESS, payload: response.data });
 	} catch (error) {
 		dispatch({ type: types.GET_TOOLS_FAIL, payload: error });
-		console.log(error);
 	}
 };
 
 export const postTools = tools => async dispatch => {
 	dispatch({ type: types.POST_TOOLS_START });
-	console.log(JSON.stringify(tools));
 	try {
 		const response = await toolApi.post('/tools', tools);
 		dispatch({ type: types.POST_TOOLS_SUCCESS, payload: response.data });
 	} catch (error) {
-		console.log(error.response.data);
 		dispatch({ type: types.POST_TOOLS_FAIL, payload: error.response.data });
 	}
 };

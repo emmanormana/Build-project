@@ -5,10 +5,8 @@ export const doSignIn = credentials => async dispatch => {
 	dispatch({ type: types.LOGIN_START });
 	try {
 		const response = await toolsApi.post('/auth/login', credentials);
-		console.log(response);
 		dispatch({ type: types.LOGIN_SUCCESS, payload: response.data });
 	} catch (error) {
-		console.log(error);
 		dispatch({ type: types.LOGIN_FAIL, payload: error.response.data });
 	}
 };
