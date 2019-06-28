@@ -44,14 +44,7 @@ export default (state = initialState, action) => {
         case types.PUT_TOOL_START:
             return {...state, isLoading: true, errors: null};
         case types.PUT_TOOL_SUCCESS:
-            const updatedPUTToolList = state.tools.map(tool => {
-                if (tool.id === payload.id) {
-                    return payload;
-                } else {
-                    return tool;
-                }
-            });
-            return {...state, isLoading: false, errors: null, tools: updatedPUTToolList, isSuccess: true};
+            return {...state, isLoading: false, errors: null, tools: payload, isSuccess: true};
         case types.PUT_TOOL_FAIL:
             return {...state, isLoading: false, errors: payload, isSuccess: false};
         case types.DELETE_TOOL_START:

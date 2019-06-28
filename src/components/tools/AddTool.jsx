@@ -25,6 +25,7 @@ const locations = [{
 
 class AddTool extends Component {
     render() {
+        console.log(`Re-render`);
         const {handleSubmit, pristine, submitting} = this.props;
         return (
             <Wrapper>

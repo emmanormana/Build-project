@@ -6,8 +6,16 @@ import HeroImage from '../common/HeroImage';
 import userImage from '../../imgs/Oval Copy 3.png';
 import TextInput, {TextInput2} from "../common/form/TextInput";
 
-import {BottomContent, Form, FormTop, H4, Wrapper } from "../styles/signInFormStyle";
-import { LargerSubmitButton, UserThumbnail, TestamonialContainer, TestamonialText, TestamonialName, NameInputGroup, CreateAccountInputGroup } from "../styles/createAccountStyle";
+import {BottomContent, Form, FormTop, H4, Wrapper} from "../styles/signInFormStyle";
+import {
+    CreateAccountInputGroup,
+    LargerSubmitButton,
+    NameInputGroup,
+    TestamonialContainer,
+    TestamonialName,
+    TestamonialText,
+    UserThumbnail
+} from "../styles/createAccountStyle";
 
 const required = value => (value ? undefined : '*Required');
 const maxLength = max => value => value && value.length > max ? `*Must be ${max} characters or less` : undefined;
@@ -31,54 +39,54 @@ class CreateAccount extends Component {
                         </FormTop>
                         <NameInputGroup>
 
-                                <Field 
-                                    name='first_name' 
-                                    type='text' 
-                                    component={TextInput2} 
-                                    label='First Name' 
-                                    validate={[required, minLength2, maxLength20]}
-                                />
+                            <Field
+                                name='first_name'
+                                type='text'
+                                component={TextInput2}
+                                label='First Name'
+                                validate={[required, minLength2, maxLength20]}
+                            />
 
-                                <Field 
-                                    name='last_name' 
-                                    type='text' 
-                                    component={TextInput2} 
-                                    label='Last Name'
-                                    validate={[required, minLength2, maxLength20]}
-                                />
+                            <Field
+                                name='last_name'
+                                type='text'
+                                component={TextInput2}
+                                label='Last Name'
+                                validate={[required, minLength2, maxLength20]}
+                            />
 
                         </NameInputGroup>
 
                         <CreateAccountInputGroup>
-                                <Field 
-                                    name='email' 
-                                    type='email' 
-                                    component={TextInput} 
-                                    label='Email Address'
-                                    validate={[required, email]}
-                                />
+                            <Field
+                                name='email'
+                                type='email'
+                                component={TextInput}
+                                label='Email Address'
+                                validate={[required, email]}
+                            />
 
-                                <Field 
-                                    name='password' 
-                                    type='password' 
-                                    component={TextInput} 
-                                    label='Password'
-                                    validate={[required, minLength5, maxLength20]}
-                                />
+                            <Field
+                                name='password'
+                                type='password'
+                                component={TextInput}
+                                label='Password'
+                                validate={[required, minLength5, maxLength20]}
+                            />
 
-                                <Field 
-                                    name='password2' 
-                                    type='password' 
-                                    component={TextInput} 
-                                    label='Confirm Password'
-                                    validate={[required]}
-                                />
+                            <Field
+                                name='password2'
+                                type='password'
+                                component={TextInput}
+                                label='Confirm Password'
+                                validate={[required]}
+                            />
 
 
                             <LargerSubmitButton
-                                type='submit' 
+                                type='submit'
                                 disabled={submitting || pristine}>
-                                    Create Account
+                                Create Account
                             </LargerSubmitButton>
 
 
@@ -92,14 +100,16 @@ class CreateAccount extends Component {
                         </UserThumbnail>
 
                         <TestamonialText>
-                            I was tired of always loaning tools and not remembering who I lent them to. With Use My Tools I know where all of my tools are all the time, and I'm even making money by renting out the tools I have.
+                            I was tired of always loaning tools and not remembering who I lent them to. With Use My
+                            Tools I know where all of my tools are all the time, and I'm even making money by renting
+                            out the tools I have.
                         </TestamonialText>
 
                         <TestamonialName>-Darren Adams</TestamonialName>
 
                     </TestamonialContainer>
 
-                </BottomContent> 
+                </BottomContent>
             </Wrapper>
         )
     }

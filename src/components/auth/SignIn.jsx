@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 import HeroImage from '../common/HeroImage';
@@ -38,6 +39,7 @@ class SignIn extends Component {
                         <FormTop>
                             <H4>Sign In</H4>
                         </FormTop>
+                        {this.props.isSuccess && <H4>User was created successfully</H4>}
                         <InputGroup>
                             <InputPair>
                                 <Field 
@@ -69,6 +71,7 @@ class SignIn extends Component {
                                     Sign In 
                                 </SubmitButton>
                             </SignInPair>
+                            {this.props.errors && <H4>Invalid Credentials</H4>}
 
                         </InputGroup>
                     </Form>
@@ -84,4 +87,6 @@ class SignIn extends Component {
     };
 }
 
+const mapStateToProps = state => ({isSuccess: state.auth.isSuccess, errors: state.auth.errors});
+SignIn = connect(mapStateToProps)(SignIn);
 export default reduxForm({form: 'signIn'})(SignIn);

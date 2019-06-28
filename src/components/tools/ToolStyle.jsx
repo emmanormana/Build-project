@@ -8,6 +8,7 @@ export const ToolContainer = styled.div`
   height: 173px;
   width:100%;
   background-color:white;
+  margin-bottom: 20px;
 `;
 
 export const LargeSubContainer = styled.div`
