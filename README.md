@@ -25,13 +25,7 @@ yarn install
 yarn start
 ```
 
-## Run tests
-
-```sh
-npm run test
-```
-
-## Author
+## Authors
 
 👤 **Donald Whitely**
 
