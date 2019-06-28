@@ -10,7 +10,9 @@ import {
     LargeSubContainer,
     SubContainer,
     ToolButton,
-    ToolContainer
+    ToolContainer,
+    CheckBoxContainer, 
+    H4FormText
 } from './ToolStyle'
 
 
@@ -33,8 +35,27 @@ const Tool = (props) => {
             </LargeSubContainer>
 
             <SubContainer>
-                <H1>{props.tool.status}</H1>{/*figure out how this is going to be displayed pic */}
+                <H1> 
+                    <CheckBoxContainer>
+                        <input type='checkbox' name='my_garage_only'/>
+                        
+                        <H4FormText>My Garage Only</H4FormText>
+                        </CheckBoxContainer>
+                        <CheckBoxContainer>
+                        <input type='checkbox' name='my_network' />
+                        <H4FormText>My Network</H4FormText>
+                        </CheckBoxContainer>
+                        <CheckBoxContainer>
+                        <input type='checkbox' name='rental' />
+                                    <H4FormText>Rental</H4FormText>
+                                </CheckBoxContainer></H1>
             </SubContainer>
+
+
+
+
+
+
 
             <ButtonContainer>
                 {props.tool.owner_id === props.userId && <ToolButton><Link to={`/dashboard/edit-tool/${props.tool.id}`}>{'Edit Tool'}</Link></ToolButton>}

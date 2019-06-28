@@ -4,8 +4,7 @@ import {} from "../common/form/TextInput";
 import {TextInput, TextInput2, TextInput3} from '../common/form/TextInput';
 import CheckInput from '../common/form/CheckInput';
 import {Field, reduxForm} from 'redux-form';
-import { BottomContent, Form, FormTop, H4, OtherH4, OtherOtherH4, SubmitButton, Wrapper, TriangleTop, H4Group, ImgPlaceholder,ContainerContainer, Container, Container2, Container3, Container4, Container5 } 
-  from '../tools/AddToolStyle';
+import { BottomContent, Form, FormTop, H4, OtherH4, OtherOtherH4, SubmitButton, Wrapper, TriangleTop, H4Group, ImgPlaceholder,ContainerContainer, Container, Container2, Container3, Container4, Container5 } from '../tools/AddToolStyle';
 
 
 const locations = [{

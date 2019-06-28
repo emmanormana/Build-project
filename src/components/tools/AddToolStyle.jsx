@@ -255,7 +255,7 @@ export const OtherH4 = styled.h4`
   justify-content: flex-start;
   height: auto;
   width:220px;
-  font-size: 1.8rem;
+  font-size: 3.8rem;
   font-weight:600;
   color: #41340C;
   line-height: 25px;

@@ -3,26 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {putTool} from "../../actions/toolActions";
 import toolApi from '../../api/toolsApi'
-import {
-    BottomContent,
-    CheckBoxContainer,
-    Container,
-    Container2,
-    Container3,
-    Container4,
-    Container5,
-    ContainerContainer,
-    Form,
-    FormTop,
-    H4,
-    H4FormText,
-    H4Group,
-    ImgPlaceholder,
-    OtherH4,
-    SubmitButton,
-    TriangleTop,
-    Wrapper
-} from '../tools/AddToolStyle';
+import {BottomContent,CheckBoxContainer,Container,Container2,Container3,Container4,Container5,ContainerContainer,Form,FormTop,H4,H4FormText,H4Group,ImgPlaceholder,OtherH4,SubmitButton,TriangleTop,Wrapper} from '../tools/AddToolStyle';
 import {LabelPair} from '../styles/createAccountStyle';
 import {Input, InputPair, Label, LargeInput, ShortInput, ShortLabel} from "../styles/signInFormStyle";
 
