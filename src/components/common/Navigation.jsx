@@ -16,8 +16,7 @@ class Navigation extends Component {
     );
     signedOutLinks = (
         <div>
-            <NavLink to='/about'>About</NavLink>
-            <NavLink to='/faq'>FAQ</NavLink>
+            <a href='https://lambda-usemytools.github.io/EliLandingPage/about.html'>About</a>
             <NavLink to='/create-account'>Create Account</NavLink>
             <NavLink to='/'>Sign In</NavLink>
         </div>
