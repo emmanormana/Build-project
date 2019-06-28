@@ -8,7 +8,7 @@ import { doSignOut } from '../../actions/authActions';
 class Navigation extends Component {
 	signedInLinks = (
 		<div>
-			<NavLink to='#'>Support</NavLink>
+			<NavLink to='/dashboard/coming-soon'>Support</NavLink>
 			<NavLink to='/dashboard/view-my-tools'>My Tools</NavLink>
 			<NavLink to='/' onClick={this.props.doSignOut}>
 				Sign Out
