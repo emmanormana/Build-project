@@ -65,9 +65,9 @@ class SignIn extends Component {
 							</InputPair>
 
 							<SignInPair>
-								<Link to='/forgot-password'>
-									<ForgotPasswordLink>ForgotPassword?</ForgotPasswordLink>
-								</Link>
+								{/*<Link to='/forgot-password'>*/}
+								{/*	<ForgotPasswordLink>ForgotPassword?</ForgotPasswordLink>*/}
+								{/*</Link>*/}
 								<SubmitButton type='submit' disabled={pristine || submitting}>
 									Sign In
 								</SubmitButton>

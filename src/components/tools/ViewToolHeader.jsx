@@ -18,20 +18,20 @@ import {
 	SubContainer2,
 	SubHeaderContainer,
 } from './viewAllStyle';
-
+const handleSubmit = e => e.preventDefault();
 const ViewToolHeader = () => {
 	return (
 		<div>
 			<SearchViewContainer>
 				<SearchContainer>
-					<FormSearch>
-						<Field name='search' type='text' component={TextInput2} label='Tool Search' placeholder='Search' />
-						<SearchButtons>Search</SearchButtons>
+					<FormSearch onSubmit={handleSubmit}>
+						<Field name='search' type='text' component={TextInput2} label='Tool Search' placeholder='Coming Soon' />
+						<SearchButtons>Coming Soon</SearchButtons>
 					</FormSearch>
 				</SearchContainer>
 				<div>
 					<SearchButtons actionButton>
-						<Link to='/dashboard/my-tools'>Back to My Tools</Link>
+						<Link to='/dashboard/view-my-tools'>Back to My Tools</Link>
 					</SearchButtons>
 					<SearchButtons actionButton>
 						<Link to='/dashboard'>Back to My Home</Link>

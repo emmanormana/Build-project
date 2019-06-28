@@ -34,7 +34,7 @@ const SuccessScreen = ({ isSuccess }) => {
 							<Link to='/dashboard/add-tool'>Add Tool</Link>
 						</SubmitButton>
 						<SubmitButton>
-							<Link to='/dashboard/my-tools'> My Tools</Link>
+							<Link to='/dashboard/view-my-tools'> My Tools</Link>
 						</SubmitButton>
 						<SubmitButton>
 							<Link to='/dashboard'>Go Home</Link>
