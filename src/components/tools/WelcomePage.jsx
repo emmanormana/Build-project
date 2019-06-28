@@ -1,49 +1,55 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+// Images
+import heroImage from '../../imgs/Hero Image.png';
+
+// Component
 import Card from './Card';
-import {CardContainer, QuickLink, QuickLinkContainer, Trianglebox, User} from "./cardStyle";
-import heroImage from '../../imgs/Hero Image.png'
-import {BottomContent, Image, Wrapper} from '../styles/signInFormStyle';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCaretDown} from "@fortawesome/free-solid-svg-icons";
 
-const WelcomePage = props => {
-    const {cards, first_name} = props;
-    const [toggle, setToggle] = useState(false);
-    return (
-        <Wrapper>
-            <Image dashboard src={heroImage} alt='Various Tools'/>
+// Images
+import { CardContainer, QuickLink, QuickLinkContainer, Trianglebox, User } from './cardStyle';
+import { BottomContent, Image, Wrapper } from '../styles/signInFormStyle';
 
-            <Trianglebox>
-                
-                <User>{`Welcome ${first_name}!`}</User>
-                <QuickLinkContainer>
+// FontAwesome Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-                    <QuickLink onClick={() => setToggle(!toggle)}>Quick Links<FontAwesomeIcon
-                        icon={faCaretDown}/></QuickLink>
+const WelcomePage = ({ cards, first_name }) => {
+	const [ toggle, setToggle ] = useState(false);
+	return (
+		<Wrapper>
+			<Image dashboard src={heroImage} alt='Various Tools' />
 
-                    {toggle && <Link to='/dashboard/add-tool'><QuickLink child>Add a Tool</QuickLink></Link>}
+			<Trianglebox>
+				<User>{`Welcome ${first_name}!`}</User>
+				<QuickLinkContainer>
+					<QuickLink onClick={() => setToggle(!toggle)}>
+						Quick Links<FontAwesomeIcon icon={faCaretDown} />
+					</QuickLink>
 
-                    {toggle &&
-                    <Link to='/dashboard/borrow-tool' onClick={() => setToggle(!toggle)}><QuickLink child>Borrow a
-                        Tool</QuickLink></Link>}
+					{toggle && (
+						<Link to='/dashboard/add-tool'>
+							<QuickLink child>Add a Tool</QuickLink>
+						</Link>
+					)}
 
-                </QuickLinkContainer>
+					{toggle && (
+						<Link to='/dashboard/borrow-tool' onClick={() => setToggle(!toggle)}>
+							<QuickLink child>Borrow a Tool</QuickLink>
+						</Link>
+					)}
+				</QuickLinkContainer>
+			</Trianglebox>
 
-            </Trianglebox>
-
-            <BottomContent card>
-
-                <CardContainer>
-                    {cards.map((card, i) => <Card card={card} key={i}/>)}
-                </CardContainer>
-
-            </BottomContent>
-        </Wrapper>
-    )
+			<BottomContent card>
+				<CardContainer>{cards.map((card, i) => <Card card={card} key={i} />)}</CardContainer>
+			</BottomContent>
+		</Wrapper>
+	);
 };
 
-const mapStateToProps = state => ({first_name: state.auth.user.first_name})
+const mapStateToProps = state => ({ first_name: state.auth.user.first_name });
 
 export default connect(mapStateToProps)(WelcomePage);
