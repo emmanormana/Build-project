@@ -16,6 +16,7 @@ export const NavBar = styled.nav`
   }
   
   h1 {
+  a {
   font-size: 3.2rem;
   margin-left: 80px;
   font-weight: 600;
@@ -24,7 +25,7 @@ export const NavBar = styled.nav`
     margin-left: 0;
     }
   }
-  
+  }
   a {
     font-size: 2rem;
     margin-right: 32px;
