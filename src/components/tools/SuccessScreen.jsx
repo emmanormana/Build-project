@@ -21,8 +21,8 @@ const SuccessScreen = props => {
         <BottomContent>
             <Form>
                 <ButtonContainer>
-                    <SubmitButton><Link to='/dashboard/add-tool'>Add Another Tool</Link></SubmitButton>
-                    <SubmitButton><Link to='/dashboard/my-tools'>Go to My Tools</Link></SubmitButton>
+                    <SubmitButton><Link to='/dashboard/add-tool'>Add  Tool</Link></SubmitButton>
+                    <SubmitButton><Link to='/dashboard/my-tools'> My Tools</Link></SubmitButton>
                     <SubmitButton><Link to='/dashboard'>Go Home</Link></SubmitButton>
                 </ButtonContainer>
             </Form>

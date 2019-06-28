@@ -91,3 +91,29 @@ export const Italic = styled.h1`
   line-height: 25px;
   font-style: italic;
 `;
+
+export const H4FormText = styled.h4`
+  display:flex;
+  align-items: flex;
+  justify-content: flex-start;
+  height: auto;
+  width:220px;
+  /* font-size: 1.8rem; */
+  font-weight:600;
+  color: #41340C;
+  line-height: 25px;
+
+`;
+
+export const CheckBoxContainer = styled.div`
+display:flex;
+align-items: center;
+justify-content: center;
+height: auto;
+width:220px;
+font-size: 1.8rem;
+font-weight:600;
+color: #1E3A46;
+line-height: 25px;
+`;
+
