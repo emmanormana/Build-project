@@ -10,14 +10,13 @@ class Navigation extends Component {
     signedInLinks = (
         <div>
             <NavLink to='#'>Support</NavLink>
-            <NavLink to='/dashboard/view-my-tools'>My Account Info</NavLink>
+            <NavLink to='/dashboard/view-my-tools'>My Tools</NavLink>
             <NavLink to='/' onClick={this.props.doSignOut}>Sign Out</NavLink>
         </div>
     );
     signedOutLinks = (
         <div>
-            <NavLink to='/about'>About</NavLink>
-            <NavLink to='/faq'>FAQ</NavLink>
+            <a href='https://lambda-usemytools.github.io/EliLandingPage/about.html'>About</a>
             <NavLink to='/create-account'>Create Account</NavLink>
             <NavLink to='/'>Sign In</NavLink>
         </div>

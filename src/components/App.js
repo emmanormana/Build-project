@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Route, Switch, withRouter} from 'react-router-dom';
 import {deleteTool, getTools, postTools, putTool} from '../actions/toolActions';
-
+import styled from 'styled-components';
 
 import Tools from './tools/Tools';
 
@@ -22,7 +22,15 @@ import {doCreateAccount, doSignIn, doSignOut, doWelcomeBack} from "../actions/au
 import {borrowTool, dashboard, myRentals, myTools} from './common/data/welcomePageData'
 import jwt_decode from "jwt-decode";
 import Loader from "react-loader-spinner";
-
+const FullScreen = styled.div`
+  max-width: 1000px;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 class App extends Component {
     async componentDidMount() {
         await this.props.getTools();
@@ -63,8 +71,11 @@ class App extends Component {
     render() {
         const {isAuthLoading, isToolsLoading} = this.props;
         if (isAuthLoading || isToolsLoading) {
-            return <Loader type='Ball-Triangle' color='Black' height='100' width='100'
-                           style={{width: '100vw', height: '100vh', margin: 'auto'}}/>
+            return (
+                <FullScreen>
+                    <Loader type='Ball-Triangle' color='Black' height='100' width='100' />
+                </FullScreen>)
+
         } else {
             return (<div className='container'>
                 <GlobalStyle/>
