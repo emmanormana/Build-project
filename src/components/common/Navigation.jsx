@@ -29,7 +29,7 @@ class Navigation extends Component {
 		const { isAuth } = this.props;
 		return (
 			<NavBar>
-				<h1>Use My Tools</h1>
+				<h1><a href='https://lambda-usemytools.github.io/EliLandingPage'>Use My Tools</a></h1>
 				{isAuth ? this.signedInLinks : this.signedOutLinks}
 			</NavBar>
 		);
