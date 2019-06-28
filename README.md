@@ -4,7 +4,6 @@
   <a href="https://twitter.com/TheDonRockz">
     <img alt="Twitter: TheDonRockz" src="https://img.shields.io/twitter/follow/TheDonRockz.svg?style=social" target="_blank" />
   </a>
-  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
    <a href="https://twitter.com/JonkeWesley">
     <img alt="Twitter: JonkeWesley" src="https://img.shields.io/twitter/follow/JonkeWesley.svg?style=social" target="_blank" />
   </a>
