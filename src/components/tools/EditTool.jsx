@@ -2,7 +2,26 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {putTool} from "../../actions/toolActions";
 import toolApi from '../../api/toolsApi'
-import {BottomContent,CheckBoxContainer,Container,Container2,Container3,Container4,Container5,ContainerContainer,Form,FormTop,H4,H4FormText,H4Group,ImgPlaceholder,OtherH4,SubmitButton,TriangleTop,Wrapper} from '../tools/AddToolStyle';
+import {
+    BottomContent,
+    CheckBoxContainer,
+    Container,
+    Container2,
+    Container3,
+    Container4,
+    Container5,
+    ContainerContainer,
+    Form,
+    FormTop,
+    H4,
+    H4FormText,
+    H4Group,
+    ImgPlaceholder,
+    OtherH4,
+    SubmitButton,
+    TriangleTop,
+    Wrapper
+} from '../tools/AddToolStyle';
 import {LabelPair} from '../styles/createAccountStyle';
 import {Input, InputPair, Label, LargeInput, ShortInput, ShortLabel} from "../styles/signInFormStyle";
 
@@ -108,7 +127,7 @@ class EditTool extends Component {
                                                     value={this.state.tool_name} onChange={this.onHandleChange}/>
                                     </InputPair>
                                 </Container4>
-                                <SubmitButton type="submit">Update Tool</SubmitButton>
+                                <SubmitButton type='submit'>Update Tool</SubmitButton>
                             </Container5>
                         </ContainerContainer>
                     </Form>

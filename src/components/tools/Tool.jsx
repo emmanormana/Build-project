@@ -37,16 +37,16 @@ const Tool = (props) => {
             <SubContainer>
                 <H1> 
                     <CheckBoxContainer>
-                        <input type='checkbox' name='my_garage_only' checked={props.tool.my_garage_only}/>
+                        <input type='checkbox' name='my_garage_only' readOnly checked={props.tool.my_garage_only}/>
                         
                         <H4FormText>My Garage Only</H4FormText>
                         </CheckBoxContainer>
                         <CheckBoxContainer>
-                        <input type='checkbox' name='my_network' checked={props.tool.my_network} />
+                        <input type='checkbox' name='my_network' readOnly checked={props.tool.my_network} />
                         <H4FormText>My Network</H4FormText>
                         </CheckBoxContainer>
                         <CheckBoxContainer>
-                        <input type='checkbox' name='rental' checked={props.tool.rental}/>
+                        <input type='checkbox' name='rental' readOnly checked={props.tool.rental}/>
                                     <H4FormText>Rental</H4FormText>
                                 </CheckBoxContainer></H1>
             </SubContainer>
