@@ -70,12 +70,15 @@ export const WarningRequired = styled.span`
   font-weight: 600;
 `;
 
+
+
 export const NameInputGroup = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top:40px;
-  width:81% ;
+  width:100% ;
+  height: 90%;
 `;
 
 export const CreateAccountInputGroup = styled.div`
@@ -85,7 +88,6 @@ export const CreateAccountInputGroup = styled.div`
   justify-content: flex-start;
   width:100% ;
   height: 90% ;
-
 `;
 
 export const LabelPair = styled.div`

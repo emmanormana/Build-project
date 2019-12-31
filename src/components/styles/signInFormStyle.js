@@ -70,6 +70,7 @@ export const InputPair = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-top:14px;
+ 
 
 `;
 
@@ -111,9 +112,8 @@ export const Label = styled.label`
   color: #1e3a46;
   font-size: 1.8rem;
   line-height: 25px;
-  margin-left: 20px;
   font-weight: 600;
-  margin-top: 0px;
+  margin-bottom: 5px;
 `;
 
 export const ShortLabel = styled.label`
@@ -121,7 +121,7 @@ export const ShortLabel = styled.label`
   color: #1e3a46;
   font-size: 1.8rem;
   line-height: 25px;
-  margin-left: 20px;
+
   margin-top: 0px;
   font-weight: 600;
 `;
@@ -142,7 +142,7 @@ export const ShortInput = styled.input`
   border: none;
   background: #e9e8e4;
   border-bottom: 1px solid #635710; 
-    
+  
 `;
 
 export const LargeInput = styled.input`
